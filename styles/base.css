@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: oswald, roboto;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 5rem;
+    margin: 0;
+}
+
+header,
+footer {
+    background-color: rgb(42, 40, 40);
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+
+header span {
+    display: block;
+    text-align: center;
+    font-family: oswald;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+nav {
+    background-color: black;
+    margin-top: 2rem;
+    padding: 1rem;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    list-style: none;
+}
+
+li a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: blue;
+}
+
+main {
+    max-width: 1200px;
+    /*centres the layout */
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+h1 {
+    grid-column: 1/span 2;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+h3 {
+    background-color: blue;
+    color: white;
+}
+
+.about {
+    grid-column: 1/2;
+}
+
+.nigeria {
+    grid-column: 2/2;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+}
+
+footer {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: roboto;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: capitalize;
+}

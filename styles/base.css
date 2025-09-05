@@ -74,9 +74,11 @@ h1 {
     text-align: center;
 }
 
-h3 {
+h2 {
     background-color: blue;
     color: white;
+    text-align: center;
+    border-radius: 2%;
 }
 
 .about {

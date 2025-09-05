@@ -75,7 +75,7 @@ h1 {
 }
 
 h2 {
-    background-color: blue;
+    background-color: black;
     color: white;
     text-align: center;
     border-radius: 2%;
@@ -108,8 +108,4 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 1rem;
-    font-family: roboto;
-    font-size: 1rem;
-    font-weight: 400;
-    text-transform: capitalize;
 }

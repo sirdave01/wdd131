@@ -58,15 +58,15 @@ a:hover {
 
 main {
     max-width: 1200px;
-    /*centres the layout */
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-    align-items: center;
+    align-items: start;
+    /* Align content at the top */
     justify-content: center;
-
 }
+
 
 h1 {
     grid-column: 1/span 2;
@@ -74,15 +74,59 @@ h1 {
     text-align: center;
 }
 
-h2 {
+h2,
+h3 {
     background-color: black;
     color: white;
     text-align: center;
     border-radius: 2%;
 }
 
+
 .about {
     grid-column: 1/2;
+}
+
+.about ul {
+    display: flex;
+    flex-wrap: nowrap;
+    /* Keep links in one row */
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+    justify-content: space-between;
+    /* Evenly distribute links */
+    gap: 0.5rem;
+    /* Small gap between items */
+}
+
+.about li {
+    flex: 1;
+    /* Equal width for each item */
+    text-align: center;
+    /* Center text */
+    overflow: hidden;
+    /* Hide overflow */
+    text-overflow: ellipsis;
+    /* Add ellipsis for long text */
+    max-width: 14%;
+    /* Limit width to fit 7 items (1/7th of the container) */
+}
+
+.about a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    /* Reduced size to fit horizontally */
+    display: block;
+    /* Ensure full width of li */
+    white-space: nowrap;
+    /* Keep text on one line within ellipsis */
+}
+
+.about a:hover {
+    text-decoration: underline;
 }
 
 .nigeria {
@@ -94,6 +138,7 @@ h2 {
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .box img {

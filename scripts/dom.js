@@ -38,6 +38,9 @@ article.style.textAlign = 'justify';
 article.style.backgroundColor = '#f9f9f9';
 article.style.padding = '15px';
 article.style.borderRadius = '8px';
+//changing font weight and text decoration of the article
+article.style.fontWeight = 'bold';
+article.style.textDecoration = 'underline';
 
 // 4. Creating and Appending Elements
 const newItem = document.createElement('div');

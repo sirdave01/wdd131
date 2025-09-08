@@ -41,7 +41,7 @@ button.addEventListener('click', function () {
 
         // use the element tag name to select the button element
         const button = document.querySelector('button');
-        
+
         // use the id attribute to select the list element
         const list = document.querySelector('#list');
 

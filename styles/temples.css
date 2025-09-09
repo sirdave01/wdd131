@@ -79,6 +79,14 @@ header {
     font-size: 1rem;
 }
 
+.navigation a:visited {
+    color: lightgray;
+}
+
+.navigation a:hover {
+    color: rgb(255, 215, 0);
+}
+
 main {
     display: grid;
     grid-template-columns: 1fr;
@@ -102,7 +110,7 @@ main {
     gap: 0.5rem;
 }
 
-.gallery img{
+.gallery img {
     width: 100%;
     height: auto;
     border: 0.25rem solid rgba(0, 0, 0, 0.2);

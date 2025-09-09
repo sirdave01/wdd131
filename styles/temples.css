@@ -54,10 +54,11 @@ header {
     flex-direction: column;
     position: absolute;
     top: 5rem;
-    left: 1.2rem;
+    left: 0.5rem;
     background-color: rgb(59, 59, 138);
     padding: 1rem;
     border: 0.5rem solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
 }
 
 .navigation.open {
@@ -77,4 +78,49 @@ header {
     color: white;
     font-weight: lighter;
     font-size: 1rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 0.5rem;
+    padding: 1rem;
+    background-color: red;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+.gallery img{
+    width: 100%;
+    height: auto;
+    border: 0.25rem solid rgba(0, 0, 0, 0.2);
+}
+
+.gallery figcaption {
+    text-align: center;
+    font-size: 0.95rem;
+    padding: 0.5rem 0;
+    color: white;
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 700;
 }

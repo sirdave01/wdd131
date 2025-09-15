@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <meta name="description" content="Designing a webpage of a Place I live or wish to go">
+    <title>Places</title>
+    <meta name="description" content="Designing a webpage of a Place I live or wish to go as an assignment for WDD 131">
     <meta name="author" content="Osigwe Uchechukwu DavidCaleb">
     <meta name="keywords" content="HTML, CSS, JavaScript">
 
@@ -35,16 +35,17 @@
 
         <section class="data">
 
-            <h2></h2>
+            <h2>Data</h2>
 
-            <ol>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
+            <ol class="data-list">
+                <li> <span>Area:</span> <span> <data value="184,827sq km"></data> </span></li>
+                <li> <span>Population:</span> <data value="7,958,000"></data> <span></span></li>
+                <li> <span>Capital:</span> <data value="Olympia"></data> <span></span></li>
+                <li> <span>Languages:</span> <data value="English, Spanish"></data> <span></span></li>
+                <li> <span>Currency:</span> <data value="US Dollar ($)"></data> <span></span></li>
+                <li> <span>Timezone:</span> <data value="USA (GMT-7)"></data> <span></span></li>
+                <li> <span>Calling Code:</span> <data value="+206"></data> <span></span></li>
+                <li> <span>Internet TLD:</span> <data value=".us"></data> <span></span></li>
             </ol>
 
 
@@ -52,21 +53,33 @@
 
         <section class="weather">
 
-            <h2></h2>
+            <h2>Weather</h2>
 
-            <ol>
+            <img src="images/icons/weather.webp" alt="weather icon">
 
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
-                <li> <span></span> <span></span></li>
+            <ol class="data-list">
+
+                <li> <span>Temperature:</span> <span></span></li>
+                <li> <span>Conditions:</span> <span></span></li>
+                <li> <span>Wind:</span> <span></span></li>
+                <li> <span>Wind Chill:</span> <span></span></li>
 
             </ol>
 
         </section>
+
     </main>
 
-    <footer></footer>
+    <footer>
+        <p>
+            &copy; <span id="currentyear"></span>
+            Osigwe Uchechukwu DavidCaleb, Nigeria
+        </p>
+
+        <p id="lastModified">
+
+        </p>
+    </footer>
 
 </body>
 

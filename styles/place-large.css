@@ -1,4 +1,4 @@
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 1024px) {
 
     :root {
         --heading-font: "Roboto";
@@ -38,7 +38,7 @@
     }
 
     h2 {
-        background-color: hsla(241, 85%, 64%, 0.968);
+        background-color: hsla(241, 85%, 70%, 1);
         text-align: left;
         border-radius: 10%;
     }
@@ -60,7 +60,7 @@
     }
 
     .weather {
-        top: 30rem;
+        top: 36.7rem;
         right: 3.5rem;
         background-color: transparent;
     }
@@ -73,6 +73,12 @@
         content: "☁️";
         vertical-align: middle;
         margin-right: 10px;
+    }
+
+    .data-list {
+
+        background-color: hsl(0, 70%, 98%);
+
     }
 
 }

@@ -7,7 +7,19 @@
     --font-family: "Roboto";
     --font-weight: 400;
     --line-height: 1.5;
-    --border-bottom: 1px solid hsl(0, 16%, 45%);
+    --margin-bottom: 1.5rem;
+    --margin-top: 1.5rem;
+}
+
+body {
+    margin-top: var(--margin-top);
+    margin-bottom: var(--margin-bottom);
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+    min-height: 100vh;
+    background-color: white;
 }
 
 header,
@@ -41,43 +53,37 @@ h2 {
     color: white;
     text-align: center;
     text-transform: var(--heading-text-transform);
+    background-color: hsl(0, 15%, 42%);
+    margin: 0;
 }
 
 section {
-    
-    background-color: white;
     display: grid;
     gap: 1rem;
     grid-template-columns: 1fr;
-
+    margin-bottom: var(--margin-bottom);
+    margin-top: var(--margin-top);
+    background-color: transparent;
 }
 
+.data,
 h2 {
 
     background-color: hsl(0, 15%, 42%);
 }
 
-.data {
-
-    padding: 10px;
-    border-bottom: var(--border-bottom);
-}
 
 .data-list {
     list-style-type: none;
-    margin: 1rem 0;
+    background-color: white;
     text-align: center;
-    padding-left: 1rem;
     font-size: var(--font-size);
-    color: hsl(0, 0%, 0%);
+    padding: 10px;
 }
 
 .data-list li {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 0.5rem;
-    line-height: var(--line-height);
-    font-weight: var(--font-weight);
 }
 
 .data-list li span:first-child {
@@ -85,18 +91,27 @@ h2 {
     flex: 0 0 130px;
     color: hsl(0, 0%, 0%);
     text-align: right;
-    padding-right: 1rem;
+    padding-right: 0.5rem;
 }
 
 .data-list li span data[value]::after {
     /*display data value content */
     content: attr(value);
     color: hsl(0, 0%, 0%);
-    font-weight: var(--font-weight);
 }
 
-.weather img {
-    width: 50px;
+.weather {
+    background-color: white;
+}
+
+.icon {
+    width: 100px;
     height: auto;
-    margin: 0.5rem 0;
+    margin: 0 auto;
+}
+
+footer {
+    text-align: center;
+    font-size: var(--font-size);
+    color: white;
 }

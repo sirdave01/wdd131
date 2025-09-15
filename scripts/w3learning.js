@@ -22,3 +22,14 @@ let name = fullName("Uchechukwu", "DavidCaleb");
 
 // Log the value of the variable "name" to the console
 console.log(name);
+
+// Write an expression that calls the fullName function declaration and writes the
+// result to an existing HTML element's text node with the ID of fullName
+
+document.querySelector(`#fullName`).innerHTML = fullName("Uchechukwu", "DavidCaleb");
+
+// Write an expression that calls the fullName arrow function expression and writes the
+// result to an existing HTML element's text node with the ID of fullName2
+document.getElementById("fullName2").textContent = fullName("Uchechukwu", "DavidCaleb");
+
+// --- IGNORE ---

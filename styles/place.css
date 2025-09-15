@@ -1,13 +1,46 @@
 :root {
     --heading-font: "Roboto";
-    --heading-font-weight: 700;
+    --heading-font-weight: bolder;
     --heading-font-size: 1.5rem;
+    --heading-text-transform: uppercase;
     --font-size: 1rem;
     --font-family: "Roboto";
     --font-weight: 400;
     --line-height: 1.5;
     --border-bottom: 1px solid hsl(0, 16%, 45%);
+}
 
+header,
+main,
+footer {
+    max-width: 426px;
+    margin: 0.5rem auto;
+    border: 0.2rem solid rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    background-color: hsl(0, 15%, 42%);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+h1,
+h2 {
+    font-family: var(--heading-font);
+    font-weight: var(--heading-font-weight);
+    font-size: var(--heading-font-size);
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    text-transform: var(--heading-text-transform);
 }
 
 .data {
@@ -21,7 +54,7 @@
     text-align: center;
     padding-left: 1rem;
     font-size: var(--font-size);
-    color: #333;
+    color: hsl(0, 0%, 100%);
 }
 
 .data-list li {
@@ -35,7 +68,7 @@
 .data-list li span:first-child {
     font-weight: bold;
     flex: 0 0 130px;
-    color: #555;
+    color: hsl(0, 0%, 100%);
     text-align: right;
     padding-right: 1rem;
 }

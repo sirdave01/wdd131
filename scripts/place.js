@@ -25,6 +25,18 @@ function displayWeather() {
     }
 }
 
+// get the date of the webpage creation and last modified date and use it to populate the footer
+// get the current year and override it into the html file on the footer
+
+function updateFooter() {
+    const currentYearElement = document.querySelector("#currentyear");
+    const currentYear = new Date().getFullYear();
+    currentYearElement.textContent = currentYear;
+    const lastModifiedElement = document.querySelector("#lastModified");
+    const lastModifiedDate = document.lastModified;
+    lastModifiedElement.textContent = `Last Modified: ${lastModifiedDate}`;
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     displayWeather();

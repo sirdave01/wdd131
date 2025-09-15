@@ -16,7 +16,20 @@
 
     <header></header>
 
-    <main></main>
+    <main>
+
+        <!-- shorthand for making pictures images main>div.hero>picture>source:media*2+img -->
+
+        <div class="hero">
+            <picture>
+                <source media="(min-width: 1000px )" srcset="images/hero-large.jpg">
+                <source media="(min-width: 500px)" srcset="images/hero-medium.jpg">
+                <img src="images/hero-small.webp" alt="Temple Image" width="500" height="250">
+            </picture>
+        </div>
+
+
+    </main>
 
     <footer></footer>
 

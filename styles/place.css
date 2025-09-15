@@ -1,0 +1,54 @@
+:root {
+    --heading-font: "Roboto";
+    --heading-font-weight: 700;
+    --heading-font-size: 1.5rem;
+    --font-size: 1rem;
+    --font-family: "Roboto";
+    --font-weight: 400;
+    --line-height: 1.5;
+    --border-bottom: 1px solid hsl(0, 16%, 45%);
+
+}
+
+.data {
+    padding: 10px;
+    border-bottom: var(--border-bottom);
+}
+
+.data-list {
+    list-style-type: none;
+    margin: 1rem 0;
+    text-align: center;
+    padding-left: 1rem;
+    font-size: var(--font-size);
+    color: #333;
+}
+
+.data-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+    line-height: var(--line-height);
+    font-weight: var(--font-weight);
+}
+
+.data-list li span:first-child {
+    font-weight: bold;
+    flex: 0 0 130px;
+    color: #555;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.data-list li span[data-value]::after {
+    /*display data value content */
+    content: attr(data-value);
+    color: #000;
+    font-weight: var(--font-weight);
+}
+
+.weather img {
+    width: 50px;
+    height: auto;
+    margin: 0.5rem 0;
+}

@@ -47,3 +47,40 @@ function displaySections(course) {
         cell3.textContent = section.enrolled;
     });
 }
+
+// Create rows in an existing HTML table with an id of sections for each existing section
+// This code separates the rendering using a map function from the template that builds a row.
+
+function renderSectionRow(section) {
+    return `
+        <tr>
+            <td>${section.section}</td>
+            <td>${section.instructor}</td>
+            <td>${section.enrolled}</td>
+        </tr>
+    `;
+}
+function displaySectionsWithTemplate(course) {
+    let table = document.getElementById('sections-table');
+    table.innerHTML = course.sections.map(renderSectionRow).join('');
+}
+// to initialize it on pageload
+
+document.addEventListener('DOMContentLoaded', () => {
+    displayCourse(aCourse);
+    displaySections(aCourse);
+    displaySectionsWithTemplate(aCourse);
+});
+// creating a script for the footer
+function updateFooter() {
+    // this line of code selects the footer element from the HTML document
+    const footer = document.querySelector(`footer`);
+    // this line of code gets the current year and assigns it to the variable 'year'
+    const year = new Date().getFullYear();
+    // line of code that shows last modified/edited
+    const lastModified = document.lastModified;
+    footer.innerHTML = `
+        <p>&copy; ${year} 🚀 Osigwe Uchechukwu Davidcaleb 🚀</p>
+        <p>Object Literals | Last Modified ${lastModified}</p>
+    `;
+}

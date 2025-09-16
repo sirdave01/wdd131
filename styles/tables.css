@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* best way to style a table */
+
+table {
+    width: 400px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+
+    caption {
+        caption-side: bottom;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 1rem;
+    }
+
+    th,
+    td {
+        border: 1px solid rgb(0, 0, 0, 0.1);
+        padding: 0.5rem 1rem;
+        white-space: pre;
+    }
+
+    thead th,
+    tbody td {
+        text-align: center;
+    }
+
+    thead {
+        color: white;
+        background-color: #000;
+
+        th {
+            padding: 1rem;
+            font-size: larger;
+        }
+
+        tr:nth-last-child(1) {
+            background-color: #333;
+        }
+
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #eee;
+    }
+}
+
+.blank {
+    background-color: black;
+}

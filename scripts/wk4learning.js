@@ -22,21 +22,21 @@ let aCourse = {
 // Use dot notation to access the parts of the object that you need.
 
 function displayCourse(course) {
-    document.getElementById('course-name').textContent = course.title;
-    document.getElementById('course-number').textContent = course.code;
-    document.getElementById('course-credits').textContent = course.credits;
-    document.getElementById('course-section-1').textContent = course.sections[0].section;
-    document.getElementById('course-instructor-1').textContent = course.sections[0].instructor;
-    document.getElementById('course-enrolled-1').textContent = course.sections[0].enrolled;
-    document.getElementById('course-section-2').textContent = course.sections[1].section;
-    document.getElementById('course-instructor-2').textContent = course.sections[1].instructor;
-    document.getElementById('course-enrolled-2').textContent = course.sections[1].enrolled;
+    document.querySelector('course-name').textContent = course.title;
+    document.querySelector('course-number').textContent = course.code;
+    document.querySelector('course-credits').textContent = course.credits;
+    document.querySelector('course-section-1').textContent = course.sections[0].section;
+    document.querySelector('course-instructor-1').textContent = course.sections[0].instructor;
+    document.querySelector('course-enrolled-1').textContent = course.sections[0].enrolled;
+    document.querySelector('course-section-2').textContent = course.sections[1].section;
+    document.querySelector('course-instructor-2').textContent = course.sections[1].instructor;
+    document.querySelector('course-enrolled-2').textContent = course.sections[1].enrolled;
 }
 
 // Create another function that will output the sections into a table with an id of sections-table.
 
 function displaySections(course) {
-    let table = document.getElementById('sections-table');
+    let table = document.querySelector('sections-table');
     course.sections.forEach(section => {
         let row = table.insertRow();
         let cell1 = row.insertCell(0);
@@ -61,7 +61,7 @@ function renderSectionRow(section) {
     `;
 }
 function displaySectionsWithTemplate(course) {
-    let table = document.getElementById('sections-table');
+    let table = document.querySelector('sections-table');
     table.innerHTML = course.sections.map(renderSectionRow).join('');
 }
 // to initialize it on pageload

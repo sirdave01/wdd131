@@ -158,7 +158,60 @@ const temples = [
 
 createTempleCard();
 
-function createTempleCard(filteredTemples = temples) {
+// Respond to the main navigation menu items by filtering and displaying the temples as follows:
+// Old – temples built before 1900
+// New – temples built after 2000
+// Large – temples larger than 90,000 square feet
+// Small – temples smaller than 10,000 square feet
+// Home – displays all the temples stored in the array.
+
+// first construct the filter buttons with their respective IDs
+const homeButton = document.querySelector("#home");
+const oldButton = document.querySelector("#old");
+const newButton = document.querySelector("#new");
+const largeButton = document.querySelector("#large");
+const smallButton = document.querySelector("#small");
+
+// add event listeners to the buttons to filter the temples accordingly
+
+homeButton.addEventListener("click", () => {
+    document.querySelector(".gallery").innerHTML = "";
+    createTempleCard(temples);
+});
+
+oldButton.addEventListener("click", () => {
+    document.querySelector(".gallery").innerHTML = "";
+    const oldTemples = temples.filter((temple) => {
+        const dedicatedYear = new Date(temple.dedicated).getFullYear();
+        return dedicatedYear < 1900;
+    });
+    createTempleCard(oldTemples);
+});
+
+newButton.addEventListener("click", () => {
+    document.querySelector(".gallery").innerHTML = "";
+    const newTemples = temples.filter((temple) => {
+        const dedicatedYear = new Date(temple.dedicated).getFullYear();
+        return dedicatedYear > 2000;
+    });
+    createTempleCard(newTemples);
+});
+
+largeButton.addEventListener("click", () => {
+    document.querySelector(".gallery").innerHTML = "";
+    const largeTemples = temples.filter((temple) => temple.area > 90000);
+    createTempleCard(largeTemples);
+});
+
+smallButton.addEventListener("click", () => {
+    document.querySelector(".gallery").innerHTML = "";
+    const smallTemples = temples.filter((temple) => temple.area < 10000);
+    createTempleCard(smallTemples);
+});
+
+// create the function to generate the temple cards dynamically
+
+function createTempleCard(filteredTemples) {
     temples.forEach((temple) => {
         // create elements to add to the document
         let card = document.createElement("section");
@@ -197,9 +250,3 @@ function createTempleCard(filteredTemples = temples) {
     });
 }
 
-// Respond to the main navigation menu items by filtering and displaying the temples as follows:
-// Old – temples built before 1900
-// New – temples built after 2000
-// Large – temples larger than 90,000 square feet
-// Small – temples smaller than 10,000 square feet
-// Home – displays all the temples stored in the array.

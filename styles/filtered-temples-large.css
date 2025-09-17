@@ -1,0 +1,84 @@
+/* designing for the larger screen */
+
+@media screen and (min-width: 426px) {
+
+    header,
+    main,
+    footer {
+        max-width: 1920px;
+        margin: 1rem auto;
+        border: 1.5rem solid rgba(0, 0, 0, 0.2);
+        padding: 1.5rem;
+        background-color: rgb(21, 49, 23);
+    }
+
+    header {
+        padding: 2rem;
+        background-color: rgb(21, 49, 23);
+        flex-direction: row;
+    }
+
+    .name {
+
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-left: 1rem;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        position: static;
+        border: none;
+        transition: none;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .navigation a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .navigation a:hover {
+        color: rgb(255, 215, 0);
+    }
+
+    .menu::before {
+        display: none;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        border: none;
+        background-color: transparent;
+        padding: 1.5rem;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        align-items: flex-start;
+        justify-content: center;
+        margin: 1rem;
+    }
+
+    .gallery figcaption {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        text-transform: uppercase;
+        font-weight: 400;
+    }
+
+    footer {
+        font-size: 2rem;
+        color: white;
+        font-weight: 500;
+    }
+
+}

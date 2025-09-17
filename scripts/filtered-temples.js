@@ -154,51 +154,52 @@ const temples = [
 // making sure to include an appropriate alt value such as the name of the temple.,
 // Use native lazy loading for each temple image.
 
-temples.forEach((temple) => {
-    // create elements to add to the document
-    let card = document.createElement("section");
-    let h2 = document.createElement("h2");
-    let p1 = document.createElement("p");
-    let p2 = document.createElement("p");
-    let p3 = document.createElement("p");
-    let p4 = document.createElement("p");
-    let img = document.createElement("img");
-    let hr = document.createElement("hr");
+//create Templecard function
 
-    // change the textContent property of the h2 element to contain the temple name
-    h2.textContent = `${temple.templeName}`;
-    p1.textContent = `Location: ${temple.location}`;
-    p2.textContent = `Dedicated: ${temple.dedicated}`;
-    p3.textContent = `Area: ${temple.area.toLocaleString()} sq ft`;
-    p4.textContent = `Image of ${temple.templeName}`;
+createTempleCard();
 
-    // build the image attributes by using the setAttribute method for the src, alt, and loading attribute values
-    img.setAttribute("src", temple.imageUrl);
-    img.setAttribute("alt", `Image of ${temple.templeName}`);
-    img.setAttribute("loading", "lazy");
-    img.setAttribute("width", "400");
-    img.setAttribute("height", "250");
+function createTempleCard(filteredTemples = temples) {
+    temples.forEach((temple) => {
+        // create elements to add to the document
+        let card = document.createElement("section");
+        let h2 = document.createElement("h2");
+        let p1 = document.createElement("p");
+        let p2 = document.createElement("p");
+        let p3 = document.createElement("p");
+        let p4 = document.createElement("p");
+        let img = document.createElement("img");
+        let hr = document.createElement("hr");
 
-    // add/append the section(card) with the created elements
-    card.appendChild(h2);
-    card.appendChild(p1);
-    card.appendChild(p2);
-    card.appendChild(p3);
-    card.appendChild(img);
-    card.appendChild(hr);
+        // change the textContent property of the h2 element to contain the temple name
+        h2.textContent = `${temple.templeName}`;
+        p1.textContent = `Location: ${temple.location}`;
+        p2.textContent = `Dedicated: ${temple.dedicated}`;
+        p3.textContent = `Area: ${temple.area.toLocaleString()} sq ft`;
+        p4.textContent = `Image of ${temple.templeName}`;
 
-    // add/append the existing HTML div with the cards class with the section(card)
-    document.querySelector(".gallery").appendChild(card);
-});
+        // build the image attributes by using the setAttribute method for the src, alt, and loading attribute values
+        img.setAttribute("src", temple.imageUrl);
+        img.setAttribute("alt", `Image of ${temple.templeName}`);
+        img.setAttribute("loading", "lazy");
+        img.setAttribute("width", "400");
+        img.setAttribute("height", "250");
 
+        // add/append the section(card) with the created elements
+        card.appendChild(h2);
+        card.appendChild(p1);
+        card.appendChild(p2);
+        card.appendChild(p3);
+        card.appendChild(img);
+        card.appendChild(hr);
 
+        // add/append the existing HTML div with the cards class with the section(card)
+        document.querySelector(".gallery").appendChild(card);
+    });
+}
 
-
-
-
-
-
-
-
-
-
+// Respond to the main navigation menu items by filtering and displaying the temples as follows:
+// Old – temples built before 1900
+// New – temples built after 2000
+// Large – temples larger than 90,000 square feet
+// Small – temples smaller than 10,000 square feet
+// Home – displays all the temples stored in the array.

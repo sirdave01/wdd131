@@ -1,3 +1,33 @@
+//get the date of the webpage creation and last modified date and use it to populate the footer
+//get the current year and override it into the html file on the footer
+
+const currentYearElement = document.querySelector("#currentyear");
+const currentYear = new Date().getFullYear();
+
+// input the current year into the html text content
+
+currentYearElement.textContent = currentYear
+
+// get the last modified date to input the last date the website was modified
+const lastModifiedElement = document.querySelector("#lastModified");
+const lastModifiedDate = document.lastModified;
+lastModifiedElement.textContent = `Last Modified: ${lastModifiedDate}`;
+
+//hamburger menu
+// creating script for the hamburger menu for small screen
+
+const hamButton = document.querySelector(".menu");
+const navigation = document.querySelector(".navigation");
+
+hamButton.addEventListener("click", () => {
+    navigation.classList.toggle("open");
+    hamButton.classList.toggle("open");
+});
+
+
+
+
+
 //populating the HTML figure area with Javascript and make them dynamically responsive
 //populating the Image via JavaScript for the temples
 
@@ -124,8 +154,6 @@ const temples = [
 // making sure to include an appropriate alt value such as the name of the temple.,
 // Use native lazy loading for each temple image.
 
-// first we will write a loop code to get the names of the temples
-
 temples.forEach((temple) => {
     // create elements to add to the document
     let card = document.createElement("section");
@@ -150,6 +178,17 @@ temples.forEach((temple) => {
     img.setAttribute("loading", "lazy");
     img.setAttribute("width", "400");
     img.setAttribute("height", "250");
+
+    // add/append the section(card) with the created elements
+    card.appendChild(h2);
+    card.appendChild(p1);
+    card.appendChild(p2);
+    card.appendChild(p3);
+    card.appendChild(img);
+    card.appendChild(hr);
+
+    // add/append the existing HTML div with the cards class with the section(card)
+    document.querySelector(".gallery").appendChild(card);
 });
 
 
@@ -159,28 +198,7 @@ temples.forEach((temple) => {
 
 
 
-//get the date of the webpage creation and last modified date and use it to populate the footer
-//get the current year and override it into the html file on the footer
 
-const currentYearElement = document.querySelector("#currentyear");
-const currentYear = new Date().getFullYear();
 
-// input the current year into the html text content
 
-currentYearElement.textContent = currentYear
 
-// get the last modified date to input the last date the website was modified
-const lastModifiedElement = document.querySelector("#lastModified");
-const lastModifiedDate = document.lastModified;
-lastModifiedElement.textContent = `Last Modified: ${lastModifiedDate}`;
-
-//hamburger menu
-// creating script for the hamburger menu for small screen
-
-const hamButton = document.querySelector(".menu");
-const navigation = document.querySelector(".navigation");
-
-hamButton.addEventListener("click", () => {
-    navigation.classList.toggle("open");
-    hamButton.classList.toggle("open");
-});

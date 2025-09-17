@@ -79,6 +79,12 @@ header {
     font-size: 1rem;
 }
 
+.navigation a.active {
+    background-color: hsl(0, 0%, 4%);
+    color: rgb(59, 59, 138);
+    font-weight: bold;
+}
+
 .navigation a:visited {
     color: lightgray;
 }
@@ -93,12 +99,13 @@ main {
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 
 .title {
     text-align: center;
     font-size: 1rem;
-    color: white;
+    color: hsl(0, 0%, 4%);
     margin-bottom: 0.5rem;
     padding: 1rem;
 }
@@ -113,15 +120,25 @@ main {
     width: 100%;
     height: auto;
     border: 0.25rem solid rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: scale(0.8);
+    /* Start smaller */
+    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
 }
 
-.gallery figcaption {
+.gallery img.loaded {
+    opacity: 1;
+    transform: scale(1);
+    /* Scale to full size */
+}
+
+.gallery h2,
+.gallery section p {
+    font-size: 1rem;
+    padding-top: 1rem;
+    text-transform: uppercase;
+    font-weight: 400;
     text-align: center;
-    font-size: 0.95rem;
-    padding: 0.5rem 0;
-    color: white;
-    text-transform: capitalize;
-    font-weight: bold;
 }
 
 footer {

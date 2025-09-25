@@ -1,10 +1,11 @@
+/* siteplan.css */
 body {
-    font-family: 'Roboto', sans-serif;
-    /* Navy Blue for body text */
+    font-family: 'Roboto', Arial, sans-serif;
+    /* Added fallback */
     color: #1B263B;
-    /* Light gray background for contrast */
+    /* Navy Blue for body text */
     background-color: #f4f4f4;
-
+    /* Light gray background */
     margin: 0;
     padding: 20px;
     max-width: 800px;
@@ -16,9 +17,8 @@ body {
 h1,
 h2 {
     font-family: 'Lora', serif;
-    /* Navy Blue for headings */
     color: #1B263B;
-
+    /* Navy Blue for headings */
 }
 
 section {
@@ -31,28 +31,27 @@ ul {
 }
 
 a {
-    /* Soft Gold for links */
     color: #E6B800;
+    /* Soft Gold for links */
     text-decoration: none;
 }
 
 a:hover {
-    /* Soft Gold background on hover */
-    background-color: #E6B800;
-    /* Navy Blue text on hover */
+    background-color: #FFF3B0;
+    /* Pale gold for hover background */
     color: #1B263B;
+    /* Navy Blue text */
     padding: 2px 5px;
+    text-decoration: underline;
+    /* Added for clarity */
 }
 
-
 a:visited {
-    /* Lighter blue for visited links to indicate interaction */
     color: #4B5EAA;
-
+    /* Lighter blue for visited links */
 }
 
 a:active {
-    /* Darker gold for active (clicked) links to show action */
     color: #B89700;
-
+    /* Darker gold for active links */
 }

@@ -1,0 +1,58 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Navy Blue for body text */
+    color: #1B263B;
+    /* Light gray background for contrast */
+    background-color: #f4f4f4;
+
+    margin: 0;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+h1,
+h2 {
+    font-family: 'Lora', serif;
+    /* Navy Blue for headings */
+    color: #1B263B;
+
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+a {
+    /* Soft Gold for links */
+    color: #E6B800;
+    text-decoration: none;
+}
+
+a:hover {
+    /* Soft Gold background on hover */
+    background-color: #E6B800;
+    /* Navy Blue text on hover */
+    color: #1B263B;
+    padding: 2px 5px;
+}
+
+
+a:visited {
+    /* Lighter blue for visited links to indicate interaction */
+    color: #4B5EAA;
+
+}
+
+a:active {
+    /* Darker gold for active (clicked) links to show action */
+    color: #B89700;
+
+}

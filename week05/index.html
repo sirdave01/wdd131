@@ -56,7 +56,7 @@
 
         <form method="get" action="thanks.html">
 
-            <!-- first section of the form -->
+            <!-- first section of the form (placeholders, required) -->
 
             <fieldset>
 
@@ -70,11 +70,12 @@
 
                 <label> Phone <input type="tel" name="phone" placeholder="1235551234"></label>
 
-                <label> Website <input type="url" name="url" placeholder="http://" required></label>
+                <label> Website <input type="url" name="url" placeholder="http://"></label>
 
             </fieldset>
 
-            <!-- second section of the form -->
+            <!-- second section of the form (checkboxes and radio buttons)
+             radio buttons requires only one selections while checkbox can have more than 1 selection-->
 
             <fieldset>
 
@@ -100,15 +101,45 @@
 
             </fieldset>
 
-            <!-- third section of the form -->
+            <!-- third section of the form (drop down arrow for selections)
+             don't use a drop down unless there are more than 5 options -->
 
             <fieldset>
 
                 <legend>Funding</legend>
 
-                <label>Anticipated Completion Date</label>
+                <label>Anticipated Completion Date <input type="date" name="CompleteDate"></label>
+
+                <label>Course Subject
+                    <select name="subject">
+
+                        <option value="">Please Select...</option>
+
+                        <option value="software">Software Development</option>
+
+                        <option value="creative">Creative Professional</option>
+
+                        <option value="info">Information Technology</option>
+
+                        <option value="data">Data Professional</option>
+
+                        <option value="construction">Construction</option>
+
+                        <option value="manufacturing">Manufacturing</option>
+
+                        <option value="business">Business Professional</option>
+
+                        <option value="security">Cyber Security</option>
+
+                    </select>
+
+                </label>
+
+                <label>How Many Authors<input type="number" name="authors"></label>
 
             </fieldset>
+
+            <input type="submit" value="Propose my course">
 
         </form>
 

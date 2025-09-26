@@ -118,6 +118,7 @@ main {
     color: gray;
     width: 100%;
     max-width: 400px;
+    appearance: none;
 }
 
 .f1 input[type="radio"],

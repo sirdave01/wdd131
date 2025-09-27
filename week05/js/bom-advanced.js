@@ -129,5 +129,23 @@ function getChapterList() {
     return JSON.parse(localStorage.getItem(`myFavBOMList`));
 }
 
+//Finally, define the deleteChapter function with a parameter named chapter that does three things
+// 1.Reformat the chapter parameter to get rid of the ❌ that is passed on the end of the chapter
+// string when you called the deleteChapter function.
+// Use string.slice() method to extract the last character.
+
+// 2.Redefine the chaptersArray array using the array.filter method to return everything except the chapter to be removed.
+
+//3. Call the setChapterList function to update the localStorage item.
+
+function deleteChapter(chapter) {
+
+    chapter = chapter.slice(0, chapter.Length - 1); //for the step 1
+
+    chaptersArray = chaptersArray.filter((item) => (item !== chapter)); // for the step 2
+
+    setChapterList(); // for the last step (3)
+}
+
 
 

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Review</title>
+    <meta name="description" content="Designing a web form with the best practices via HTML, CSS, JavaScript">
+    <meta name="author" content="Osigwe Uchechukwu DavidCaleb">
+    <meta name="keywords" content="Product Review Form">
+
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/form-large.css">
+    <script src="scripts/form.js" defer></script>
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>
+            Product Review
+        </h1>
+
+        <h2>
+            Review of our company's products
+        </h2>
+
+        <nav>
+            <ul>
+                <li><a href="#">About</a></li>
+                <li class="active"><a href="#">Review</a></li>
+                <li><a href="#">Winners</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- 
+        creating the product review form, but use JavaScript to populate the Product names and ids
+         use HTML to populate the overall rating, date of installation
+         features found useful
+         written review in a textarea as optional
+         the name in a text area as optional
+         and the submit button
+         
+         this form will follow the best form practices in HTML, CSS and Javascript
+         and it'll be divided into sections/fieldsets
+         -->
+
+        <h2>
+            Product Review Form
+        </h2>
+
+        <form method="get" action="review.html">
+
+            <fieldset>
+
+                <legend>Product Information</legend>
+
+                <label for="productSelect">Product Name*</label>
+
+                <select id="productSelect" name="products" required>
+
+                    <option value="" disabled selected>Select a Product...</option>
+
+                </select>
+
+                <label>Date of installation*<input id="install" type="date" name="installationDate" max="2025-12-31" required></label>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Please Rate Us*</legend>
+
+                <div>
+
+                    <label for="fivestars"><input type="radio" id="fivestars" name="stars" value="5" required></label>
+
+                    <label for="fourstars"><input type="radio" id="fourstars" name="stars" value="4"></label>
+
+                    <label for="threestars"><input type="radio" id="threestars" name="stars" value="3"></label>
+
+                    <label for="twostars"><input type="radio" id="twostars" name="stars" value="2"></label>
+
+                    <label for="onestar"><input type="radio" id="onestar" name="stars" value="1"></label>
+
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Features (please check all that apply)</legend>
+
+                <div>
+
+                    <label><input id="durablecheck" type="checkbox" name="durable" value="yes">Durability</label>
+
+                    <label><input id="easecheck" type="checkbox" name="ease" value="yes">Ease of Use</label>
+
+                    <label><input id="performcheck" type="checkbox" name="perform" value="yes">Performance</label>
+
+                    <label><input id="designcheck" type="checkbox" name="design" value="yes">Design</label>
+
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Optional Review</legend>
+
+                <label for="review">Written Review (optional)</label>
+                <textarea id="review" name="textreview"></textarea>
+
+                <label for="fname">Your Name (Optional)<input id="full" type="text" name="fname"></label>
+
+            </fieldset>
+
+            <input type="submit" value="Review">
+
+        </form>
+
+    </main>
+
+    <footer>
+
+        <p>
+            &copy; <span id="currentyear"></span>
+            Osigwe Uchechukwu DavidCaleb, Nigeria
+        </p>
+
+        <p id="lastModified">
+
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

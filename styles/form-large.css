@@ -1,0 +1,198 @@
+/* designing for the larger screen */
+
+@media screen and (min-width: 426px) {
+
+    header,
+    main,
+    footer {
+        max-width: 1920px;
+        margin: 1rem auto;
+        border: 1.5rem solid rgba(0, 0, 0, 0.2);
+        padding: 1.5rem;
+        background-color: rgb(21, 49, 23);
+    }
+
+    header {
+        padding: 2rem;
+        background-color: rgb(21, 49, 23);
+        flex-direction: row;
+        align-items: center;
+    }
+
+    main {
+        background-color: transparent;
+    }
+
+    .name {
+
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding-left: 1rem;
+    }
+
+    .navigation {
+        display: flex;
+        flex-direction: row;
+        background-color: transparent;
+        position: static;
+        border: none;
+        transition: none;
+        gap: 1rem;
+        padding: 0;
+    }
+
+    .navigation a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+
+    .navigation a:hover {
+        color: rgb(255, 215, 0);
+    }
+
+    .menu::before {
+        display: none;
+    }
+
+    .rest {
+        color: hsl(0, 100%, 99%);
+        font-size: 2.3rem;
+        font-weight: bold;
+        text-align: center;
+        background-color: #cf200e;
+        padding: 30px;
+        border: none;
+        border-radius: 6px;
+    }
+
+
+    /* form designing and structuring */
+
+    .f2 fieldset {
+        /* to move the three sections away from each other */
+        margin: 5rem 0;
+        border: 1px solid lightgray;
+        border-radius: 6px;
+        padding: 1.5rem 2%;
+    }
+
+    .f2 legend {
+        font-size: 2.5rem;
+        color: blue;
+        padding: 0 1.5rem;
+    }
+
+    .f2 label {
+
+        display: block;
+        padding-top: 1rem;
+        color: red;
+        font-size: .9rem;
+    }
+
+    .f2 label:not(.stars label) {
+        font-size: 2rem;
+    }
+
+    .f2 div {
+        padding-top: 1rem;
+        color: blue;
+        font-size: .9rem;
+    }
+
+    .f2 input[type="text"],
+    .f2 textarea,
+    .f2 input[type="date"],
+    .f2 select {
+        font-size: 1.8rem;
+        background-color: hsl(0, 18%, 93%);
+        display: block;
+        border: solid #999;
+        border-radius: 6px;
+        padding: 2.5rem;
+        color: hsl(0, 0%, 2%);
+        width: 100%;
+        max-width: 2560px;
+        appearance: none;
+    }
+
+    .f2 input[type="radio"],
+    .f2 input[type="checkbox"] {
+        margin-right: 6px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .f2 input[type="submit"] {
+
+        font-size: 2rem;
+        border: none;
+        background-image: linear-gradient(#9c2c13, #cf200e);
+        color: white;
+        border-radius: 6px;
+        padding: 2.5rem;
+        width: 96%;
+        max-width: 2560px;
+        margin: -1rem 2% 2rem 2%;
+        box-shadow: 1px 1px 4px gray;
+        cursor: pointer;
+
+    }
+
+    .f2 input:required {
+        border-bottom: solid 8px #cf200e;
+    }
+
+    .f2 input:required:valid {
+        border-bottom: solid 8px green;
+    }
+
+    /* Star rating container */
+    .stars {
+        display: flex;
+        /* Higher ratings on the left */
+        flex-direction: row-reverse;
+        /* Center stars horizontally */
+        justify-content: center;
+        /* Space between stars */
+        gap: 5px;
+        
+    }
+
+    /* Hide radio inputs */
+    input[type="radio"] {
+        display: none;
+        align-items: center;
+    }
+
+    /* Style labels as stars */
+    .stars label {
+        font-size: 5rem;
+        color: rgb(7, 7, 7);
+        /* Default color for unchecked stars */
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        /* Center vertically */
+        justify-content: center;
+        /* Center horizontally within label */
+        width: 80px;
+        height: 80px;
+        transition: color 0.2s ease;
+        /* Smooth color transition */
+    }
+
+    /* Hover effect: all stars to the right of the hovered star turn black */
+    .stars label:hover,
+    .stars label:hover~label {
+        color: gold;
+    }
+
+    footer {
+        font-size: 2rem;
+        color: white;
+        font-weight: 500;
+    }
+}

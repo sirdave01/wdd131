@@ -1,3 +1,17 @@
+//creating a responsive hamburger menu for small screens
+
+let hamButton = document.querySelector(`.menu`);
+let navigation = document.querySelector(`.navigation`);
+
+//add a click event listener for responsiveness
+
+hamButton.addEventListener(`click`, () => {
+    navigation.classList.toggle(`open`);
+    hamButton.classList.toggle(`open`);
+});
+
+
+
 //creating a product array that'll dynamically populate the products area
 
 const products = [

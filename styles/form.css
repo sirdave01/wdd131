@@ -1,0 +1,259 @@
+/* Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.  */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/*----------- apply a natural box layout model to all elements --------------*/
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 1rem;
+    font-family: "Roboto", sans-serif;
+}
+
+header,
+main,
+footer {
+    max-width: 425px;
+    margin: 1rem auto;
+    border: 0.5rem solid rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+}
+
+/* header elements structuring and designing */
+
+header {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: rgb(3, 3, 244);
+    flex-direction: row-reverse;
+}
+
+.name {
+    color: hsl(0, 0%, 100%);
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 0;
+    padding-left: 1rem;
+}
+
+.rest {
+    color: hsl(0, 100%, 99%);
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    background-color: #9c2c13;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+}
+
+.menu {
+    padding-right: 1rem;
+}
+
+.menu::before {
+    content: "☰";
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.navigation {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    position: absolute;
+    top: 5rem;
+    left: 0.5rem;
+    background-color: rgb(59, 59, 138);
+    padding: 1rem;
+    border: 0.5rem solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.navigation.open {
+    display: flex;
+}
+
+.menu.open::before {
+    content: "❎";
+}
+
+.navigation li {
+    padding: 0.5rem 0;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.navigation a:visited {
+    color: lightgray;
+}
+
+.navigation a:hover {
+    color: rgb(255, 215, 0);
+}
+
+/* form designing and structuring */
+
+.f2 fieldset {
+    /* to move the three sections away from each other */
+    margin: 2rem 0;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: .5rem 2%;
+}
+
+.f2 legend {
+
+    color: blue;
+    padding: 0 .5rem;
+}
+
+.f2 label {
+
+    display: block;
+    padding-top: 1rem;
+    color: red;
+    font-size: .9rem;
+}
+
+.f2 div {
+    padding-top: 1rem;
+    color: blue;
+    font-size: .9rem;
+}
+
+.f2 input[type="text"],
+.f2 textarea,
+.f2 input[type="date"],
+.f2 select {
+    background-color: hsl(0, 18%, 93%);
+    display: block;
+    border: solid #999;
+    border-radius: 6px;
+    padding: .75rem;
+    color: hsl(0, 0%, 2%);
+    width: 100%;
+    max-width: 400px;
+    appearance: none;
+}
+
+.f2 input[type="radio"],
+.f2 input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+.f2 input[type="submit"] {
+
+    border: none;
+    background-image: linear-gradient(#9c2c13, #cf200e);
+    color: white;
+    border-radius: 6px;
+    padding: .8rem;
+    width: 96%;
+    max-width: 400px;
+    margin: -1rem 2% 2rem 2%;
+    box-shadow: 1px 1px 4px gray;
+    cursor: pointer;
+
+}
+
+.f2 input:required {
+    border-bottom: solid 8px #cf200e;
+}
+
+.f2 input:required:valid {
+    border-bottom: solid 8px green;
+}
+
+/* Star rating container */
+.stars {
+    display: flex;
+    /* Higher ratings on the left */
+    flex-direction: row-reverse;
+    /* Center stars horizontally */
+    justify-content: center;
+    /* Space between stars */
+    gap: 5px;
+}
+
+/* Hide radio inputs */
+input[type="radio"] {
+    display: none;
+}
+
+/* Style labels as stars */
+.stars label {
+    font-size: 2rem;
+    color: rgb(6, 6, 6);
+    /* Default color for unchecked stars */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* Center vertically */
+    justify-content: center;
+    /* Center horizontally within label */
+    width: 30px;
+    height: 30px;
+    transition: color 0.2s ease;
+    /* Smooth color transition */
+}
+
+/* Hover effect: all stars to the right of the hovered star turn black */
+.stars label:hover,
+.stars label:hover~label {
+    color: #e30e0e;
+}
+
+/* Checked state: selected star and all to its right turn black and filled */
+.stars input:checked+label,
+.stars input:checked+label~label {
+    color: gold;
+    /* Black when checked */
+    font-family: inherit;
+    /* Ensure consistent font for star symbols */
+}
+
+/* Use pseudo-element for star symbols */
+.stars label::before {
+    /* Empty star (☆) */
+    content: "\2606";
+    /* Optional: content transition */
+    transition: content 0.2s ease;
+}
+
+/* Filled star for checked state */
+.stars input:checked+label::before {
+    /* Filled star (★) */
+    content: "\2605";
+
+}
+
+/* Optional: Scale effect on click */
+.stars label:active::before {
+    transform: scale(1.1);
+}
+
+
+/* footer structuring and designing */
+footer {
+    text-align: center;
+    font-size: 0.95rem;
+    color: white;
+    font-weight: 700;
+    background-color: rgb(3, 3, 244);
+}

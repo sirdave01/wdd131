@@ -109,6 +109,7 @@ header {
 
 p {
     margin: 1rem;
+    font-size: 1rem;
 }
 
 .label {
@@ -118,7 +119,7 @@ p {
 #visits {
     color: navy;
     font-weight: bolder;
-    font-size: larger;
+    font-size: 1rem;
 }
 
 /* form designing and structuring */

@@ -67,6 +67,22 @@
         border-radius: 6px;
     }
 
+    p {
+        margin: 2rem;
+        font-size: 2rem;
+    }
+
+    .label {
+        font-size: 2rem;
+    }
+
+    #visits {
+        font-size: 2rem;
+        color: navy;
+        font-weight: bolder;
+    }
+
+
 
     /* form designing and structuring */
 
@@ -158,7 +174,7 @@
         justify-content: center;
         /* Space between stars */
         gap: 5px;
-        
+
     }
 
     /* Hide radio inputs */

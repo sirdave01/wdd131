@@ -107,6 +107,20 @@ header {
     color: rgb(255, 215, 0);
 }
 
+p {
+    margin: 1rem;
+}
+
+.label {
+    font-size: 1rem;
+}
+
+#visits {
+    color: navy;
+    font-weight: bolder;
+    font-size: larger;
+}
+
 /* form designing and structuring */
 
 .f2 fieldset {

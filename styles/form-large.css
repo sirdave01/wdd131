@@ -5,7 +5,7 @@
     header,
     main,
     footer {
-        max-width: 1920px;
+        max-width: 2560px;
         margin: 1rem auto;
         border: 0.2rem solid rgba(0, 0, 0, 0.2);
         padding: 1.5rem;

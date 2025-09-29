@@ -76,22 +76,6 @@ products.forEach(product => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // dynamically populate the footer of the HTML with current currentYear, last modified and time
 
 let currentYearElement = document.querySelector(`#currentYear`);

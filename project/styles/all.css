@@ -1,0 +1,157 @@
+:root {
+    --heading-font: "Lora";
+    --body-font: "Roboto";
+    --heading-font-weight: bolder;
+    --heading-font-size: 1.5rem;
+    --heading-text-transform: uppercase;
+    --font-size: 1rem;
+    --font-family: "Roboto", "Lora", Arial;
+    --font-weight: 400;
+    --line-height: 1.5;
+    --margin-bottom: 1.5rem;
+    --margin-top: 1.5rem;
+}
+
+/*Global fix for padding/border overflow issues */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+
+}
+
+body {
+    margin-top: var(--margin-top);
+    margin-bottom: var(--margin-bottom);
+    font-family: var(--font-family);
+}
+
+header,
+section,
+footer {
+    max-width: 1030px;
+    margin: 0.5rem auto;
+    background-color: hsl(240, 100%, 25%);
+    color: white;
+    padding: 1.5rem;
+}
+
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 1rem;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--heading-font);
+    text-align: center;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+/* the homepage styling */
+
+.logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+}
+
+.menu {
+    padding-right: 10px;
+}
+
+.menu::before {
+    content: "☰";
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.navigation {
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    position: absolute;
+    top: 5rem;
+    left: 0.5rem;
+    padding: 1rem;
+    border: 0.5rem solid rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(37, 27, 1);
+}
+
+.navigation.open {
+    display: flex;
+}
+
+.menu.open::before {
+    content: "❎";
+}
+
+.navigation li {
+    padding: 0.5rem 0;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: white;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.navigation a:visited {
+    color: lightgray;
+}
+
+.navigation a:hover {
+    color: gold;
+}
+
+.navigation a:active {
+    color: goldenrod;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    justify-content: center;
+    align-items: start;
+    grid-template-rows: auto auto;
+    /*Ensures grid fills the section */
+    width: 100%;
+
+}
+
+.hero h3 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin: 0;
+}
+
+.hero picture img {
+    width: 150px;
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+    display: block;
+}
+
+.hero p {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    margin: 0;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    /*Light horizontal padding for readability without overflow (thanks to box-sizing) */
+    padding: 0 1rem;
+}

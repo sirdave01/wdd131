@@ -25,8 +25,15 @@ if (activeLink) {
     console.warn(`No nav link found for ${currentPage}`)
 }
 
+// hamburgerMenu design
 
+let hamburger = document.querySelector(`.menu`);
+let navigate = document.querySelector(`.navigation`);
 
+hamburger.addEventListener(`click`, () => {
+    navigate.classList.toggle(`open`);
+    hamburger.classList.toggle(`open`);
+});
 
 
 

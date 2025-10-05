@@ -4,7 +4,7 @@
     --heading-font-weight: 700;
     --heading-font-size: 1.9rem;
     --heading-text-transform: uppercase;
-    --font-size: 1.3rem;
+    --font-size: 1rem;
     --font-family: "Roboto", "Lora", Arial;
     --font-weight: 400;
     --line-height: 1.5;
@@ -281,4 +281,30 @@ img {
     to {
         opacity: 1;
     }
+}
+
+/* styling the about page */
+
+.church {
+    width: 100%;
+    position: relative;
+}
+
+.bus {
+    position: absolute;
+    top: 200px;
+    background-color: #F09A3E;
+    left: 50%;
+    transform: translate(-50%);
+    width: 90%;
+    border-radius: 10px;
+}
+
+.first,
+.second {
+    text-align: center;
+}
+
+.bold {
+    font-weight: var(--heading-font-weight);
 }

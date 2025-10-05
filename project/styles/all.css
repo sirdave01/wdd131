@@ -1,10 +1,10 @@
 :root {
     --heading-font: "Lora";
     --body-font: "Roboto";
-    --heading-font-weight: bolder;
-    --heading-font-size: 1.5rem;
+    --heading-font-weight: 700;
+    --heading-font-size: 1.9rem;
     --heading-text-transform: uppercase;
-    --font-size: 1rem;
+    --font-size: 1.3rem;
     --font-family: "Roboto", "Lora", Arial;
     --font-weight: 400;
     --line-height: 1.5;
@@ -18,30 +18,37 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    /* margin: 0;
+    padding: 0; */
 
 }
 
 body {
+    max-width: 767px;
     margin-top: var(--margin-top);
     margin-bottom: var(--margin-bottom);
     font-family: var(--font-family);
+    background-color: #F09A3E;
 }
 
 header,
 section,
 footer {
-    max-width: 1030px;
     margin: 0.5rem auto;
-    background-color: hsl(240, 100%, 25%);
-    color: white;
+    background-color: hsl(240, 25%, 97%);
+    color: rgb(5, 5, 5);
     padding: 1.5rem;
+    width: 100%;
 }
 
 header {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.7rem;
+    width: 100%;
+    background-color: #FFFFFF;
+    align-items: center;
 }
 
 h1,
@@ -71,7 +78,7 @@ h1 {
 .menu::before {
     content: "☰";
     font-size: 1.5rem;
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 
@@ -119,9 +126,64 @@ h1 {
     color: goldenrod;
 }
 
-.hero {
+.worship {
+    margin-top: 1rem;
+    width: 100%;
+    position: relative;
+}
+
+.home {
+    font-size: var(--heading-font-size);
+    position: absolute;
+    top: 200px;
+    padding: 1rem;
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.warm {
+    position: absolute;
+    top: 300px;
+    color: #FFFFFF;
+    text-align: center;
+    font-family: var(--font-family);
+    overflow-wrap: break-word;
+    padding: 0 1rem;
+}
+
+.butt a {
+    position: absolute;
+    top: 450px;
+    background-color: #F09A3E;
+    text-decoration: none;
+    padding: 0.5rem 2.2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    color: #FFFFFF;
+    font-family: var(--body-font);
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+}
+
+.give a {
+    position: absolute;
+    top: 500px;
+    background-color: hsla(240, 100%, 25%, 0.863);
+    text-decoration: none;
+    padding: 0.5rem 2.2rem;
+    color: #FFFFFF;
+    font-family: var(--body-font);
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero,
+#history,
+#vision {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem;
     justify-content: center;
     align-items: start;
@@ -131,27 +193,57 @@ h1 {
 
 }
 
-.hero h3 {
-    grid-column: 1 / -1;
-    grid-row: 1;
-    margin: 0;
+.hero h3,
+#history h3,
+#vision h3 {
+    font-size: var(--heading-font-size);
+    text-align: center;
 }
 
-.hero picture img {
-    width: 150px;
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: start;
-    display: block;
-}
-
-.hero p {
-    grid-column: 2;
-    grid-row: 2;
-    text-align: left;
+.hero p,
+#history p,
+#vision p {
+    font-family: var(--body-font);
+    font-size: var(--font-size);
+    text-align: center;
     margin: 0;
     overflow-wrap: break-word;
     hyphens: auto;
-    /*Light horizontal padding for readability without overflow (thanks to box-sizing) */
-    padding: 0 1rem;
+}
+
+.hero picture img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.images figcaption {
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: var(--font-size);
+    font-style: italic;
+}
+
+img {
+    animation: fade 10s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+footer {
+    text-align: center;
+    font-size: 0.95rem;
+    color: white;
+    font-weight: var(--font-weight);
+    background-color: hsla(240, 100%, 25%, 0.863);
 }

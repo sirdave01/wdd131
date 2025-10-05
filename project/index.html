@@ -31,7 +31,7 @@
 
     <header class="parent">
 
-        <img class="logo" src="images/cross.webp" alt="My Church Logo">
+        <img class="logo" src="images/cross.webp" alt="My Church Logo" loading="lazy">
 
         <h1>My Church Nigeria</h1>
 
@@ -61,7 +61,17 @@
 
     <main id="main-content">
 
-        <h2 class="home">Home</h2>
+        <img class="worship" src="images/worshippers.webp" alt="worshippers" loading="lazy">
+
+        <p class="warm">
+            A warm welcome to our official church page
+        </p>
+
+        <button class="butt"><a href="about.html">About Us</a></button>
+
+        <button class="butt give"><a href="donation.html">Give</a></button>
+
+        <h2 class="home">My Church Nigeria</h2>
 
         <section class="hero">
 
@@ -69,25 +79,27 @@
                 Welcome Message
             </h3>
 
+            <p>
+                It's with the Love of God that I weclome you to our Church's webpage, on behalf of the church, we say
+                welcome
+            </p>
+
+            <!-- shorthand for making pictures images main>div.hero>picture>source:media*2+img -->
+
             <picture class="images">
 
                 <source media="(min-width: 1000px)" srcset="images/dp-large.webp">
 
                 <source media="(min-width: 500px)" srcset="images/dp-medium.webp">
 
-                <img src="images/dp.webp" alt="founder" width="200" height="200">
+                <img src="images/dp.webp" alt="founder" width="200" height="200" loading="lazy">
+                <figcaption>Osigwe Uchechukwu DavidCaleb</figcaption>
 
             </picture>
 
-            <p>
-
-                It's with the Love of God that I weclome you to our Church's webpage, on behalf of the church, we say
-                welcome
-            </p>
-
         </section>
 
-        <section>
+        <section id="history">
 
             <h3>
                 Our History
@@ -101,7 +113,7 @@
             </p>
         </section>
 
-        <section>
+        <section id="vision">
 
             <h3>
                 Our Vision

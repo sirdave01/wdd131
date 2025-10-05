@@ -77,8 +77,8 @@
         color: #F09A3E;
         font-family: var(--font-family);
         overflow-wrap: normal;
-        font-size: var(--heading-font-size);
-        font-weight: var(--heading-font-weight);
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
         left: 50%;
         transform: translateX(-50%);
         background-color: hsla(240, 100%, 25%, 0.863);

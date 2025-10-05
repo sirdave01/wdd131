@@ -61,30 +61,98 @@
         padding: 1rem;
         background-color: #F09A3E;
         margin-bottom: var(--margin-bottom);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .warm {
+        top: 600px;
+        color: #F09A3E;
+        font-family: var(--font-family);
+        overflow-wrap: normal;
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: hsla(240, 100%, 25%, 0.863);
+        padding: 1rem 2rem;
     }
 
     .butt a {
-        top: 450px;
+        top: 950px;
         background-color: #F09A3E;
         text-decoration: none;
-        padding: 0.5rem 2.2rem;
+        padding: 1rem 2rem;
         color: #FFFFFF;
         font-family: var(--body-font);
-        font-size: large;
-        justify-content: center;
-        align-items: center;
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .give a {
         position: absolute;
-        top: 500px;
+        top: 1050px;
+        margin-top: 1rem;
         background-color: hsla(240, 100%, 25%, 0.863);
         text-decoration: none;
         padding: 0.5rem 2.2rem;
         color: #FFFFFF;
         font-family: var(--body-font);
-        font-size: large;
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        justify-content: center;
+        align-items: start;
+        grid-template-rows: auto auto;
+        /*Ensures grid fills the section */
+        width: 100%;
+
+    }
+
+    .hero h3 {
+        font-size: var(--heading-font-size);
+        text-align: center;
+        grid-column: 1 / -1;
+    }
+
+    .hero p,
+    #history p,
+    #vision p {
+        font-family: var(--body-font);
+        font-size: var(--font-size);
+        text-align: center;
+        margin: 0;
+        overflow-wrap: break-word;
+        hyphens: auto;
+    }
+
+    .hero p {
+        grid-column: 1/1;
+    }
+
+    .hero picture img {
+        max-width: 100%;
+        margin: 0 auto;
+        display: block;
         justify-content: center;
         align-items: center;
+        grid-column: 2 / 2;
+    }
+
+    #vision p,
+    #history p {
+        align-items: center;
+        justify-content: center;
+        grid-column: 1 / 2;
+        overflow-wrap: none;
     }
 }

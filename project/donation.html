@@ -61,8 +61,66 @@
 
     <main id="main-content">
 
-        <form></form>
-        
+        <h2>
+            Support our Church
+        </h2>
+
+        <p><em>This is a Demo-no real payments processed!</em></p>
+
+        <form>
+
+            <fieldset>
+
+                <legend>
+                    Contact Details
+                </legend>
+
+                <label for="fullName">Full Name*<input type="text" id="fullName" name="fullName" required
+                        aria-required="true"></label>
+
+                <label for="amount">Donation Amount($)*<input type="number" name="amount" min="1" step="0.01" required
+                        aria-required="true"></label>
+
+                <label for="message">Message(optional)</label>
+                <textarea id="message" name="message"></textarea>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>
+                    Payment Details (Demo)
+                </legend>
+
+                <div role="group" aria-labelledby="card-type-legend">
+
+                    <span id="card-type-legend">Card Type (Select One)</span>
+
+                    <label><input type="radio" name="card-type" value="verve" required
+                            aria-required="true">Verve</label>
+
+                    <label><input type="radio" name="card-type" value="paypal" required
+                            aria-required="true">Paypal</label>
+
+                    <label><input type="radio" name="card-type" value="mastercard" required
+                            aria-required="true">MasterCard</label>
+
+                    <label><input type="radio" name="card-type" value="visa" required aria-required="true">Visa</label>
+
+                </div>
+
+                <label for="card-number">Card Number<input type="text" inputmode="numeric" id="card-number"
+                        name="card-number" requireda aria-required="true"><small id="card-help" class="sr-only">Enter a
+                        16-digit card number in groups of 4 (demo: 1234 5678 9012 3456).</small></label>
+
+                <label></label>
+
+                <label></label>
+
+            </fieldset>
+
+        </form>
+
     </main>
 
     <footer role="contentinfo">

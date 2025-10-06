@@ -425,3 +425,27 @@ img {
 }
 
 /* styling the thanks.html page */
+
+#gratitude,
+.thanks-page h2,
+.thanks-page p {
+    text-align: center;
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
+    font-family: var(--body-font);
+    margin: var(--margin-bottom);
+    padding: 1rem;
+    max-width: 100%;
+}
+
+#gratitude h2,
+.thanks-page h2 {
+    font-size: var(--heading-font-size);
+    font-family: var(--heading-font);
+    font-weight: var(--heading-font-weight);
+    text-transform: var(--heading-text-transform);
+    color: #F09A3E;
+    background-color: hsla(240, 91%, 13%, 0.786);
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(240, 154, 62, 0.2);
+}

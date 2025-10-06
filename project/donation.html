@@ -67,7 +67,7 @@
 
         <p><em>This is a Demo-no real payments processed!</em></p>
 
-        <form>
+        <form id="donation-form" method="get" action="#">
 
             <fieldset>
 
@@ -82,6 +82,7 @@
                         aria-required="true"></label>
 
                 <label for="message">Message(optional)</label>
+
                 <textarea id="message" name="message"></textarea>
 
             </fieldset>
@@ -113,11 +114,15 @@
                         name="card-number" requireda aria-required="true"><small id="card-help" class="sr-only">Enter a
                         16-digit card number in groups of 4 (demo: 1234 5678 9012 3456).</small></label>
 
-                <label></label>
+                <label for="expiry">Expiry Date (MM/YY)<input type="text" id="expiry" name="expiry" placeholder="12/25"
+                        pattern="\d{2}/\d{2}" maxlength="5" required></label>
 
-                <label></label>
+                <label for="cvv">CVV<input type="text" id="cvv" name="cvv" placeholder="123" pattern="\d{3}"
+                        maxlength="3" required></label>
 
             </fieldset>
+
+            <input type="submit" value="Donate Now">
 
         </form>
 

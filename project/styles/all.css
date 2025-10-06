@@ -300,13 +300,100 @@ img {
     border-radius: 10px;
 }
 
-.first, .second {
+.first,
+.second {
     text-align: center;
     font-size: 0.7rem;
-    
+
 }
 
 
 .bold {
     font-weight: var(--heading-font-weight);
+}
+
+/* styling the donation page */
+
+#donation-form {
+
+    margin: 2rem 0;
+    border: 1px solid lightgray;
+    border-radius: 6px;
+    padding: .5rem 2%;
+
+}
+
+#donation-form legend {
+
+    color: blue;
+    padding: 0 .5rem;
+}
+
+#donation-form label {
+
+    display: block;
+    padding-top: 1rem;
+    color: hsl(240, 97%, 15%);
+    font-size: .9rem;
+    font-weight: var(--font-weight);
+}
+
+#donation-form div {
+    padding-top: 1rem;
+    color: blue;
+    font-size: .9rem;
+}
+
+#donation-form input[type="text"],
+#donation-form textarea,
+#donation-form input[type="number"] {
+    background-color: hsl(0, 18%, 93%);
+    display: block;
+    border: solid #999;
+    border-radius: 6px;
+    padding: .75rem;
+    color: hsl(0, 0%, 2%);
+    width: 100%;
+    max-width: 400px;
+    appearance: none;
+}
+
+#donation-form input[type="radio"] {
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+[role="group"] input[type="radio"]:focus+span,
+[role="group"] label:focus-within {
+    outline: 2px solid #007bff;
+    border-radius: 4px;
+}
+
+.sr-only{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+#donation-form input[type="submit"] {
+
+    border: none;
+    background-image: linear-gradient(#9c2c13, #cf200e);
+    color: white;
+    border-radius: 10px;
+    padding: .8rem;
+    width: 96%;
+    max-width: 400px;
+    margin: 1rem 2% 2rem 2%;
+    box-shadow: 1px 1px 4px gray;
+    cursor: pointer;
+
+}
+
+#donation-form input:required {
+    border-bottom: solid 8px #cf200e;
+}
+
+#donation-form input:required:valid {
+    border-bottom: solid 8px green;
 }

@@ -162,4 +162,30 @@
         grid-column: 1 / 2;
         overflow-wrap: none;
     }
+
+    /* styling the about page */
+
+    .bus {
+        position: absolute;
+        top: 550px;
+        background-color: #F09A3E;
+        left: 50%;
+        transform: translate(-50%);
+        width: 96%;
+        border-radius: 10px;
+        gap: 2rem;
+    }
+
+    .first,
+    .second {
+        text-align: center;
+        padding: 2rem;
+        font-size: var(--font-size);
+    }
+
+   
+
+    .bold {
+        font-weight: var(--heading-font-weight);
+    }
 }

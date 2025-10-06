@@ -56,7 +56,7 @@
 }
 
 body {
-    max-width: 767px;
+    max-width: 759px;
     margin-top: var(--margin-top);
     margin-bottom: var(--margin-bottom);
     font-family: var(--font-family);
@@ -292,18 +292,20 @@ img {
 
 .bus {
     position: absolute;
-    top: 200px;
+    top: 210px;
     background-color: #F09A3E;
     left: 50%;
     transform: translate(-50%);
-    width: 90%;
+    width: 80%;
     border-radius: 10px;
 }
 
-.first,
-.second {
+.first, .second {
     text-align: center;
+    font-size: 0.7rem;
+    
 }
+
 
 .bold {
     font-weight: var(--heading-font-weight);

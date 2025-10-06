@@ -314,6 +314,24 @@ img {
 
 /* styling the donation page */
 
+#support {
+    color: #000;
+    background-color: #FFFFFF;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+#support-note {
+    background-color: navy;
+    color: hsl(0, 0%, 99%);
+    font-size: var(--font-size);
+    font-family: var(--body-font);
+    text-align: center;
+    font-weight: var(--font-weight);
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
 #donation-form {
 
     margin: 2rem 0;
@@ -369,14 +387,16 @@ img {
     border-radius: 4px;
 }
 
-.sr-only{
+.sr-only {
     position: absolute;
     height: 1px;
     width: 1px;
     overflow: hidden;
 }
+
 #donation-form input[type="submit"] {
 
+    font-size: var(--font-size);
     border: none;
     background-image: linear-gradient(#9c2c13, #cf200e);
     color: white;

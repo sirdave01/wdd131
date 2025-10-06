@@ -191,6 +191,23 @@
 
     /* styling the donation page */
 
+    #support {
+        font-size: var(--heading-font-size);
+        font-family: var(--heading-font);
+        font-weight: var(--heading-font-weight);
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
+    #support-note {
+
+        font-size: var(--font-size);
+        font-family: var(--body-font);
+        font-weight: var(--font-weight);
+        padding: 1.5rem;
+        border-radius: 8px;
+    }
+
     #donation-form {
 
         margin: 5rem 0;
@@ -231,6 +248,7 @@
         width: 100%;
         max-width: 2400px;
         appearance: none;
+        font-size: 2rem;
     }
 
     #donation-form input[type="radio"] {

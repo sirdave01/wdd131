@@ -40,7 +40,7 @@ let activeLink;
 
 if (pageName === `index`) {
 
-    activeLink = document.querySelector(`nav a[href="#"]`);
+    activeLink = document.querySelector(`nav a[href="index.html"]`);
 
 } else {
 
@@ -92,9 +92,15 @@ document.addEventListener(`DOMContentLoaded`, function () {
 
 if (window.location.pathname.endsWith(`donation.html`)) {
     window.addEventListener(`load`, function () {
-        const form = this.document.querySelector(`#donation-form`);
+        const form = document.querySelector(`#donation-form`);
 
-        if (!form) return;
+        if (!form) {
+
+            console.warn(`Donation form not found!`); //debug log
+            return;
+        }
+
+        console.log(`Donation form loaded`) // debug log-remove later
 
         form.addEventListener(`submit`, function (event) {
             event.preventDefault();
@@ -129,15 +135,72 @@ if (window.location.pathname.endsWith(`donation.html`)) {
                     fullName,
                     amount,
                     cardType,
-                    cardNumber: cardNumber.subString(0, 4) + `**** **** ****` + cardNumber.slice(-4),
+                    cardNumber: cardNumber.substring(0, 4) + `**** **** ****` + cardNumber.slice(-4),
                     date: new Date().toISOString()
                 });
 
                 saveDonations();
 
-                window.location.href(`thanks.html`) //redirect to thanks page
+                window.location.href = `thanks.html`; //redirect to thanks page
             }
 
         });
+    });
+}
+
+//dynamically designing the thanks.html page to show gratitude, donation history, count and card type/name
+
+if (window.location.pathname.endsWith(`thanks.html`)) {
+
+    window.addEventListener(`load`, function () {
+        loadDonations(); //loads from the global variable
+
+        //creating the container and dynamically populating the container on the HTML with script
+
+        const container = document.querySelector(`#gratitude`);
+
+        // check if there's a container
+
+        if (!container) {
+            console.warn('Gratitude container not found!');  // Debug log
+            return;
+        }
+
+        console.log('Thanks page loaded, donations count:', donations.length);  // Debug: Check total saved
+
+        // checking donations with if conditional statements
+
+        if (donations.length === 0) {
+            //create a p tag to hold the gratitude
+            container.innerHTML = `<p>No donation history yet. Thank you for your first gift!</p>`
+        } else {
+            // Filter by fullName (array method; adjust 'Demo User' to match form input if needed)
+            const userDonations = donations;
+            const count = userDonations.length;
+
+            //create a h2 tag that thanks and shows how many times the user donated
+
+            let historyHtml = `<h2> Thank You! You've donated ${count} time(s). </h2>`;
+
+            //use the coditional statement and create an unordered list for the number of times the user(s) donated
+
+            if (count > 0) {
+                historyHtml += `<ul>`;
+
+                //use a foreach loop to iterate how many times the user donated
+
+                userDonations.forEach(donation => {
+
+                    const html = `
+                    <li>$${donation.amount} with ${donation.cardType.toUpperCase()} on ${new Date(donation.date).toLocaleString()}</li>`;
+
+                    historyHtml += html; //template literals, array methods (forEach, filter)
+                });
+
+                historyHtml += `</ul>`;
+            }
+
+            container.innerHTML = historyHtml;
+        }
     });
 }

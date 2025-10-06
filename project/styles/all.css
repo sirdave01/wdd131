@@ -158,6 +158,12 @@ h1 {
     color: goldenrod;
 }
 
+.navigation a.active {
+    font-weight: bold;
+    background-color: #007bff;
+    border-radius: 4px;
+}
+
 footer {
     text-align: center;
     font-size: 0.95rem;
@@ -417,3 +423,5 @@ img {
 #donation-form input:required:valid {
     border-bottom: solid 8px green;
 }
+
+/* styling the thanks.html page */

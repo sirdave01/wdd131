@@ -281,6 +281,7 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
             if (filteredImages.length === 0) {
                 galleryContainer.innerHTML = `<p>No images found.</p>`;
                 return;
+
             } else {
                 //use a foreach loop to iterate through the filtered images
                 for (const image of filteredImages) { // Use for...of for async
@@ -295,9 +296,13 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
 
                     const imgSrc = image.webpSrc || image.src; //use webpSrc if available
 
+                    //adding a delete button for user added images only (not prepopulated ones)
+                    const deleteBtn = !prePopulateImages.some(pre => pre.src === image.src) ? `<button class="delete-btn" data-src="${image.src}">X</button>` : ``;
+                    //template literals for each image
                     const html = `
                     <figure>
                     <img src="${imgSrc}" alt="${image.alt}"loading="lazy">
+                    ${deleteBtn}
                     <figcaption>${image.caption}</figcaption>
                     </figure>
                     `;
@@ -327,7 +332,7 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
                     alert(`No files selected.`);
                     return;
                 }
-                // if files are selected loop through each file
+                // check if files are selected loop through each file
                 for (const file of files) {
                     if (!file.type.startsWith(`image/`)) {
                         alert(`File ${file.name} is not an image and will be skipped.`);
@@ -351,6 +356,7 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
                             images.push(newImage); //appends to prepopulated
                             saveImages();
                             populateGallery(); //refresh gallery
+
                         } else {
                             alert(`skipped ${file.name} due to missing alt or caption.`);
                         }
@@ -373,6 +379,31 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
                 img.caption.toLowerCase().includes(searchTerm.toLowerCase())
             );
             return filtered; //return the filtered array
+
+        }
+
+        //adding a delete button for user added images incase they want to remove any image (event delegation)
+        const galleryContainer = document.querySelector(`#gallery-container`);
+        if (galleryContainer) {
+            galleryContainer.addEventListener(`click`, function (event) {
+                if (event.target.classList.contains(`delete-btn`)) {
+                    const imgSrc = event.target.dataset.src;
+                    const index = images.findIndex(img => img.src === imgSrc);
+
+                    // check if image is not prepopulated image with an if statement condition and ask for
+                    // confimation before deleting user added images
+                    if (index > -1 && !prePopulateImages.some(pre => pre.src === imgSrc)) {
+                        if (confirm(`Are you sure you want to delete this image?`)) {
+                            images.splice(index, 1); //remove from array
+                            saveImages();
+                            populateGallery(); //refresh gallery
+                        }
+
+                    } else if (index === -1) {
+                        alert(`Image not found for deletion: ${imgSrc}.`);
+                    }
+                }
+            });
 
         }
 

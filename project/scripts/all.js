@@ -204,3 +204,8 @@ if (window.location.pathname.endsWith(`thanks.html`)) {
         }
     });
 }
+
+// dynamically creating the media.html and gallery.html pages with script will be next
+
+// media.html page script to dynamically populate the media section with js
+

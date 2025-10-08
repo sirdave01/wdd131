@@ -205,7 +205,193 @@ if (window.location.pathname.endsWith(`thanks.html`)) {
     });
 }
 
-// dynamically creating the media.html and gallery.html pages with script will be next
+// dynamically creating the contact.html, media.html and gallery.html pages with script will be next
 
-// media.html page script to dynamically populate the media section with js
+// // Gallery page: Pictures only with Add/Search + WebP Conversion/Lazy Loading (dynamic + pre-populate)
 
+if (window.location.pathname.endsWith(`gallery.html`)) {
+    window.addEventListener(`load`, function () {
+        // prepolutating the gallery with existing images
+        const prePopulateImages = [
+            { src: `images/dp.webp`, alt: `Display Picture`, caption: `My Display Picture` },
+            { src: `images/hero.webp`, alt: `Hero Image`, caption: `Hero Image` },
+            { src: `images/mine.webp`, alt: `Mine Image`, caption: `Mine Image` },
+            { src: `images/worshippers.webp`, alt: `Worshippers Image`, caption: `Worshippers Image` },
+        ];
+
+        // start with the pre populated images
+
+        let images = [...prePopulateImages];
+
+        // loading from local Storage and merging with pre populated images
+
+        const storedImages = localStorage.getItem(`galleryImages`);
+        if (storedImages) {
+            try {
+                const stored = JSON.parse(storedImages);
+                // merge prepoluated images with the stored images array
+                images = [...images, ...stored];
+            } catch (e) {
+                console.error(`Error loading images:`, e);
+            }
+        }
+
+        // create image save function to save only user adds and no duplicated
+        function saveImages() {
+            localStorage.setItem(`galleryImages`, JSON.stringify(images.filter(img => !prePopulateImages.some(pre => pre.src === img.src))));
+        }
+
+        // Function to convert image to WebP (async, using Canvas) with src, alt and caption parameters
+
+        async function convertToWebP(src, alt, caption) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.crossOrigin = `Anonymous`; // Handle CORS if needed and external URLS
+                img.onload = function () {
+                    const canvas = document.createElement(`canvas`);
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+                    const ctx = canvas.getContext(`2d`);
+                    ctx.drawImage(img, 0, 0);
+                    canvas.toBlob((blob) => {
+                        const webpUrl = URL.createObjectURL(blob); //blob URL for WebP image
+                        resolve({ src, alt, caption, webpSrc: webpUrl }); //return as a webP image
+                    }, `image/webp`, 0.7); //70% quality
+
+                };
+                img.onerror = () => resolve({ src, alt, caption, webpSrc: null }); //on error, return original
+                img.src = src;
+            });
+        }
+
+        // Populate gallery (arrays, template literals, DOM, lazy loading + WebP fallback on pre-pop too)
+        // creating populate gallery function with filtered images = images as parameter
+
+        async function populateGallery(filteredImages = images) {
+            const galleryContainer = document.querySelector(`#gallery-container`);
+            if (!galleryContainer) {
+                console.warn(`Gallery container not found!`);
+                return;
+            }
+
+            galleryContainer.innerHTML = ``; //clear existing content
+
+            // checking if there are no images/filtered images with an if statement condition
+
+            if (filteredImages.length === 0) {
+                galleryContainer.innerHTML = `<p>No images found.</p>`;
+                return;
+            } else {
+                //use a foreach loop to iterate through the filtered images
+                for (const image of filteredImages) { // Use for...of for async
+                    // Convert if no webpSrc yet (applies to pre-pop on first load)
+                    if (!image.webpSrc) {
+                        const converted = await convertToWebP(image.src, image.alt, image.caption);
+                        const index = images.findIndex(img => img.src === image.src);
+                        if (index > -1) images[index] = converted; //update the image with webpSrc
+
+                        saveImages(); //save the updated images array
+                    }
+
+                    const imgSrc = image.webpSrc || image.src; //use webpSrc if available
+
+                    const html = `
+                    <figure>
+                    <img src="${imgSrc}" alt="${image.alt}"loading="lazy">
+                    <figcaption>${image.caption}</figcaption>
+                    </figure>
+                    `;
+
+                    galleryContainer.innerHTML += html; //append each image - lazyloading on all images (preloaded and user added)
+                }
+
+            }
+        }
+
+        // Add image function (events, conditional, async conversion)
+
+        async function addImage() {
+            // creating a prompt to get the image details from the user while he/she adds from file input
+
+            const fileInput = document.querySelector(`#file-input`);
+            const addBtn = document.querySelector(`#add-gallery-btn`);
+
+            //trigger the hidden file input click
+
+            fileInput.click();
+
+            fileInput.onchange = async function () {
+                const files = Array.from(fileInput.files); //get selected files as an array
+                // check if any files selected
+                if (files.length === 0) {
+                    alert(`No files selected.`);
+                    return;
+                }
+                // if files are selected loop through each file
+                for (const file of files) {
+                    if (!file.type.startsWith(`image/`)) {
+                        alert(`File ${file.name} is not an image and will be skipped.`);
+                        continue; //skip non-image files
+                    }
+
+                    //reading files as data URL
+                    const reader = new FileReader();
+                    reader.onload = async function (e) {
+
+                        const dataUrl = e.target.result; //data URL from file
+
+                        const alt = prompt(`Enter alt text for ${file.name}:`).trim();
+
+                        const caption = prompt(`Enter caption for ${file.name}:`).trim();
+
+                        // check if the inputs are valid with an if statement condition
+
+                        if (alt && caption) {
+                            const newImage = await convertToWebP(dataUrl, alt, caption);
+                            images.push(newImage); //appends to prepopulated
+                            saveImages();
+                            populateGallery(); //refresh gallery
+                        } else {
+                            alert(`skipped ${file.name} due to missing alt or caption.`);
+                        }
+                    };
+                    reader.onerror = () => {
+                        alert(`Error reading file ${file.name}.`);
+                    };
+                    reader.readAsDataURL(file); //read the file
+                }
+
+                fileInput.value = ``; //reset file input
+            };
+        }
+
+        // Filter function (array methods) with searchTerm parameter
+
+        function filterImages(searchTerm) {
+            const filtered = images.filter(img =>
+                img.alt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                img.caption.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            return filtered; //return the filtered array
+
+        }
+
+        populateGallery(); //initial population
+
+        // Event listeners for Add and Search buttons
+        const addBtn = document.querySelector(`#add-gallery-btn`);
+        if (addBtn)
+            addBtn.addEventListener(`click`, addImage);
+
+        const searchBtn = document.querySelector(`#search-btn`);
+        const searchInput = document.querySelector(`#search-input`);
+        if (searchBtn && searchInput) {
+            searchBtn.addEventListener(`click`, () => {
+                const filtered = filterImages(searchInput.value);
+                populateGallery(filtered);
+            });
+        }
+
+
+    });
+}

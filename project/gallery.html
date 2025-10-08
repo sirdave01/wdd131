@@ -68,10 +68,14 @@
 
             <h2 id="gallery-heading">Church Gallery</h2>
 
-            <label id="search-input">Search Captions (optional) <input type="text" id="search-input"
-                    placeholder="search captions..."></label>
+            <label id="search-label" for="search-input">Search Captions (optional) <input type="search"
+                    id="search-input" placeholder="search captions..."></label>
+            <button id="search-btn">Search</button>
 
             <div id="gallery-container" aria-live="polite"></div> <!--javaScript will populate this div -->
+
+            <label for="file-input"><input type="file" id="file-input" accept="image/*" multiple
+                    aria-label="add new gallery images" style="display:none"></label>
 
             <button id="add-gallery-btn" aria-label="add new gallery">Upload Image(s)</button>
 

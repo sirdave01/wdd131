@@ -426,3 +426,5 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
 
     });
 }
+
+//media.html script is next

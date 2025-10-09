@@ -428,3 +428,186 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
 }
 
 //media.html script is next
+//calling the if statement to check if the current page is media.html
+
+if (window.location.pathname.endsWith(`media.html`)) {
+
+    // add an event listener to load the media page
+
+    window.addEventListener(`load`, function () {
+
+        //the media.html page will run as a mini social media app that will have a prepoulated media and allow users to add their own media posts
+
+        const prePopulatedMedia = [
+            {
+                type: `audio`,
+                src: `media/OdumoduBlvck-Ft-Tobe-Nwigwe-JeriQ-and-Phyno-Hallelujah-(TrendyBeatz.com).mp3`,
+                title: `Hallelujah`,
+                description: `by Odumodu Blvck ft. Tobe Nwigwe, JeriQ and Phyno`
+            },
+            {
+                type: `audio`,
+                src: `media/Adazion_Ij_-_Zam.mp3`,
+                title: `Zam`,
+                description: `by Adazion Ij`
+            },
+            {
+                type: `video`,
+                src: `media/ironBreaker.mp4`,
+                title: `Iron Breaker`,
+                description: `BrainJotter Skit`
+            }
+        ];
+
+        let mediaPosts = [...prePopulatedMedia]; //merging prepopulated media with user added media posts
+
+        //loading from localStorage and merging with prepopulated media posts
+        const storedMedia = localStorage.getItem(`mediaPosts`);
+        if (storedMedia) {
+            try {
+                const stored = JSON.parse(storedMedia);
+                mediaPosts = [...mediaPosts, ...stored];
+            } catch (e) {
+                console.error(`Error loading media posts:`, e);
+            }
+        }
+        //create a function to save media posts to localStorage
+        function saveMediaPosts() {
+            localStorage.setItem(`mediaPosts`, JSON.stringify(mediaPosts.filter(post => !prePopulatedMedia.some(pre => pre.src === post.src))));
+        }
+        //function to populate media posts (arrays, template literals, DOM)
+        function populateMedia(posts = mediaPosts) {
+            const mediaContainer = document.querySelector(`#media-container`);
+            if (!mediaContainer) {
+                console.warn(`Media container not found!`);
+                return;
+            }
+            mediaContainer.innerHTML = ``; //clear existing content
+
+            //checking if there are no media posts with an if statement condition
+            if (posts.length === 0) {
+                mediaContainer.innerHTML = `<p>No media posts found.</p>`;
+                return;
+            } else {
+                //use a foreach loop to iterate through the media posts
+                posts.forEach(post => {
+                    let mediaHtml = ``;
+                    if (post.type === `audio`) {
+                        mediaHtml = `<audio controls src="${post.src}">Your browser does not support the audio element.</audio>`;
+                    } else if (post.type === `video`) {
+                        mediaHtml = `<video controls src="${post.src}">Your browser does not support the video element.</video>`;
+                    }
+                    //adding a delete button for user added media posts only (not prepopulated ones)
+                    const deleteBtn = !prePopulatedMedia.some(pre => pre.src === post.src) ? `<button class="delete-btn" data-src="${post.src}">X</button>` : ``;
+                    //template literals for each media post
+                    const html = `
+                    <div class="media-post">
+                    <h3>${post.title}</h3>
+                    <p>${post.description}</p>
+                    ${mediaHtml}
+                    ${deleteBtn}
+                    </div>
+                    `;
+                    mediaContainer.innerHTML += html; //append each media post
+                });
+            }
+        }
+
+        //function to add media post by users from files (events, conditional)
+        function addMediaPost() {
+            //create file input first that accepts video/audio files
+            const fileInput = document.createElement(`input`);
+            fileInput.type = `file`;
+            fileInput.accept = `audio/*,video/*`;
+            fileInput.onchange = function (e) {
+                const file = e.target.files[0];
+                if (!file) {
+                    alert(`No file selected.Media Post not added.`);
+                    return;
+                }
+                //auto detect type from file NIME
+                let detectedType = ``;
+                if (file.type.startsWith(`audio/`)) {
+                    detectedType = `audio`;
+                } else if (file.type.startsWith(`video/`)) {
+                    detectedType = `video`;
+                } else {
+                    alert(`Unsupported file type: ${file.type}. Please select an audio or video file.`);
+                    return;
+                }
+
+                //auto generate title from file name (strip extension)
+                const fileName = file.name.replace(/\.[^/.]+$/, ``);//remove extension
+
+                const title = prompt(`Enter Media title (default: ${fileName}):`, fileName).trim();
+
+                if (!title) {
+                    alert(`Title is required. Media Post not added.`);
+                    return;
+                }
+
+                //create a prompt to get the description from the user
+                const description = prompt(`Enter Media description(optional):`, ``).trim();
+
+                //read the file as a data URL
+                const reader = new FileReader();
+                reader.onload = function (loadEvent) {
+                    const src = loadEvent.target.result; //data URL from file
+
+                    //create a new media post object and add to the mediaPosts array
+                    mediaPosts.push({ type: detectedType, src, title, description });
+                    saveMediaPosts();
+                    populateMedia(); //refresh media posts
+                };
+                reader.onerror = () => {
+                    alert(`Error reading file ${file.name}. Media Post not added.`);
+                };
+                reader.readAsDataURL(file); //read the file
+            };
+            fileInput.click(); //trigger the file input click
+        }
+
+        //function to filter media posts (array methods) with searchTerm parameter
+        function filterMedia(searchTerm) {
+            const filtered = mediaPosts.filter(post =>
+                post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                post.description.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+            return filtered; //return the filtered array
+        }
+        //adding a delete button for user added media posts incase they want to remove any post (event delegation)
+        const mediaContainer = document.querySelector(`#media-container`);
+        if (mediaContainer) {
+            mediaContainer.addEventListener(`click`, function (event) {
+                if (event.target.classList.contains(`delete-btn`)) {
+                    const src = event.target.dataset.src;
+                    const index = mediaPosts.findIndex(post => post.src === src);
+                    //check if media post is not prepopulated with an if statement condition and ask for confirmation before deleting user added media posts
+                    if (index > -1 && !prePopulatedMedia.some(pre => pre.src === src)) {
+                        if (confirm(`Are you sure you want to delete this media post?`)) {
+                            mediaPosts.splice(index, 1); //remove from array
+                            saveMediaPosts();
+                            populateMedia(); //refresh media posts
+                        }
+                    } else if (index === -1) {
+                        alert(`Media post not found for deletion: ${src}.`);
+                    }
+                }
+            });
+        }
+        populateMedia(); //initial population
+
+        //event listeners for Add and Search buttons
+        const addBtn = document.querySelector(`#add-media-btn`);
+        if (addBtn)
+            addBtn.addEventListener(`click`, addMediaPost);
+        const searchBtn = document.querySelector(`#search-media-btn`);
+        const searchInput = document.querySelector(`#search-media-input`);
+        if (searchBtn && searchInput) {
+            searchBtn.addEventListener(`click`, () => {
+                const filtered = filterMedia(searchInput.value);
+                populateMedia(filtered);
+            });
+        }
+    });
+}

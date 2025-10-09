@@ -281,4 +281,39 @@
     #donation-form input:required:valid {
         border-bottom: solid 8px green;
     }
+
+    /* Shared Large Screen Tweaks */
+    #search-input,
+    #search-media-input {
+        max-width: 400px;
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    #search-btn,
+    #add-gallery-btn,
+    #add-media-btn {
+        font-size: 1.2rem;
+        padding: 1rem 2rem;
+        margin: 1rem auto;
+        transition: background-image 0.3s ease, transform 0.3s ease;
+    }
+
+    #search-btn:hover,
+    #add-gallery-btn:hover,
+    #add-media-btn:hover {
+        transform: scale(1.05);
+    }
+
+    .delete-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .delete-btn:hover {
+        transform: scale(1.1);
+    }
 }

@@ -433,6 +433,9 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
 
 if (window.location.pathname.endsWith(`media.html`)) {
 
+    // adding a global variable for currentlyplaying
+
+    let currentlyplaying = null;
     // add an event listener to load the media page
 
     window.addEventListener(`load`, function () {
@@ -512,6 +515,30 @@ if (window.location.pathname.endsWith(`media.html`)) {
                     mediaContainer.innerHTML += html; //append each media post
                 });
             }
+            // adding eventlistener to make sure only one media plays at a time
+
+            // get all media elements
+            const allMedia = mediaContainer.querySelectorAll(`audio, video`);
+            // attach a play handler for each media element
+
+            allMedia.forEach(media => {
+                media.addEventListener(`play`, function (e) {
+                    const current = e.target;
+
+                    // basic version to pause others
+                    allMedia.forEach(other => {
+                        if (other !== current) {
+                            other.pause();
+                            other.currentTime = 0; //reset to start
+                        }
+                    });
+                    if (currentlyplaying && currentlyplaying !== current) {
+                        currentlyplaying.pause();
+                        currentlyplaying.currentTime = 0;
+                    }
+                    currentlyplaying = current;
+                });
+            });
         }
 
         //function to add media post by users from files (events, conditional)
@@ -610,5 +637,96 @@ if (window.location.pathname.endsWith(`media.html`)) {
                 populateMedia(filtered);
             });
         }
+    });
+}
+
+// Contact page: Dynamic form validation, submission handling, localStorage save (dynamic enhancement)
+
+if (window.location.pathname.endsWith(`contact.html`)) {
+    window.addEventListener(`load`, function () {
+        const form = document.querySelector(`#contact-form`);
+
+        if (!form) {
+            console.warn(`There's no form`);
+            return;
+        }
+
+        // Real-time validation on blur (events, conditionals, DOM manipulation)
+
+        const fields = {
+
+            fullName: document.querySelector('#contact-fullName'),
+            email: document.querySelector('#contact-email'),
+            subject: document.querySelector('#contact-subject'),
+            message: document.querySelector('#contact-message')
+        };
+
+        Object.values(fields).forEach(field => {
+            if (field) {
+                field.addEventListener(`blur`, function () {
+                    validateField(this)
+                });
+            }
+        });
+        function validateField(field) {
+            let isValid = true;
+            field.classList.remove(`invalid`); //Reset
+
+            if (field.id === `contact-fullName` && field.value.trim().length < 3) {
+                isValid = false;
+            } else if (field.id === `contact-email` && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(field.value)) {
+                isValid = false;
+            } else if (field.id === `contact-subject` && field.value.trim().length < 3) {
+                isValid = false;
+            } else if (field.id === `contact-message` && field.value.trim().length < 10) {
+                isValid = false;
+            }
+
+            if (!isValid) {
+                field.classList.add(`invalid`);
+                field.title = `Name must be atleast 3 characters`; //Tooltip hint
+            }
+        }
+
+        // Submit handler (events, conditionals, localStorage, template literals)
+        form.addEventListener(`submit`, function (event) {
+            // Validate all fields
+            let allValid = true;
+            Object.values(fields).forEach(field => {
+                if (field) {
+                    validateField(field);
+                    if (field.classList.contains(`invalid`)) allValid = false;
+                }
+            });
+
+            if (!allValid) {
+                event.preventDefault(); //prevent submit if invalid
+                alert(`Please, fix the highlighted fields`);
+                return;
+            }
+
+            // If valid, allow natural post to Formspree (no preventDefault)
+            // Optional fallback: Save to localStorage for demo
+
+            const inquiry = {
+                fullName: fields.fullName.value.trim(),
+                email: fields.email.value.trim(),
+                subject: fields.subject.value.trim(),
+                message: fields.message.value.trim(),
+                date: new Date().toISOString()
+            };
+            let inquiries = JSON.parse(localStorage.getItem(`inquiries`)) || [];
+            inquiries.push(inquiry);
+            localStorage.setItem(`inquiries`, JSON.stringify(inquiries));
+
+            // use alert to notify users upon submission
+            alert = `<p>Thankyou, ${inquiry.fullName}! Your message has been sent. We'll respond soon.</p>`;
+
+
+            // Clear form after a delay (post-submit)
+            setTimeout(() => form.reset(), 2000); //timeout after 2 secs
+
+            console.log('Inquiry saved:', inquiry);  // Debug
+        });
     });
 }

@@ -184,7 +184,6 @@
         align-self: center;
         justify-content: center;
         grid-column: 1 / 2;
-        overflow-wrap: none;
     }
 
     /* styling the about page */

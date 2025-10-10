@@ -479,6 +479,7 @@ img {
     border-radius: 6px;
     padding: 2.5rem 2%;
     max-width: 96%;
+    position: relative;
 }
 
 .media-post h3,

@@ -16,10 +16,10 @@
     header,
     section,
     footer {
-        max-width: min(90vw, 1200px);
+        max-width: 1920px;
         margin: 1rem auto;
         padding: 2rem;
-       
+
     }
 
     header {
@@ -352,5 +352,5 @@
         transform: scale(1.1);
     }
 
-    
+
 }

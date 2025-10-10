@@ -275,6 +275,7 @@ footer {
 }
 
 .images figcaption {
+    align-self: center;
     text-align: center;
     font-family: var(--body-font);
     font-size: var(--font-size);

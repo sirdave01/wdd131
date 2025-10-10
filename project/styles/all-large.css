@@ -129,7 +129,7 @@
         transform: translateX(-50%);
     }
 
-    
+
     .hero {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -173,11 +173,12 @@
     }
 
     #history,
-    #vision{
+    #vision {
         display: grid;
         grid-template-columns: 1fr;
         justify-content: center;
     }
+
     #vision p,
     #history p {
         align-self: center;
@@ -306,15 +307,29 @@
         border-bottom: solid 8px green;
     }
 
-    /* designing the media and gallery page */
+    /* designing the media and gallery page - Enhanced for large screens */
+    .content-grid {
+        display: grid;
+        /* Auto 1-4+ cols: 1 on ~600px, fills wide screens without emptiness */
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        justify-items: center;
+        margin: 2rem auto;
+        max-width: 2400px;
+        padding: 1rem;
+    }
 
     .media-post {
-        /* overflow: hidden; */
-        margin: 2rem auto;
+        margin: 0;
         border: 1px solid rgb(243, 7, 7);
         border-radius: 6px;
-        padding: 2rem;
-        max-width: 2400px;
+        padding: 2.5rem;
+        /* Fills grid cell fully */
+        width: 100%;
+        /* Subtle pop for visibility */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        /* Centers title/desc/media */
+        text-align: center;
     }
 
     .media-post h3,
@@ -323,46 +338,127 @@
         font-family: var(--body-font);
         font-size: var(--heading-font-size);
         font-weight: var(--font-weight);
+        line-height: var(--line-height);
+        margin-bottom: 1rem;
     }
 
     .media-post audio,
     .media-post video {
+        /* Scales naturally with content */
+        height: auto;
+        /* Ensures controls have vertical space (play bar visible) */
+        min-height: 80px;
+        /* Still caps to post width if huge */
+        width: 100%;
         max-width: 100%;
         display: block;
-        margin: 0.5rem auto;
+        /* Centers with breathing room */
+        margin: 1rem auto;
+        border-radius: 8px;
+        /* Clean look—no browser outline glitches */
+        outline: none;
+        border: 2px solid #F09A3E;
+        box-shadow: 0 4px 12px rgba(240, 154, 62, 0.3);
+        background-color: rgba(240, 154, 62, 0.05);
+
     }
 
+    .media-post audio::-webkit-media-controls-panel {
+
+        /* Extra padding inside controls (WebKit browsers) */
+        padding: 1rem;
+
+    }
+
+    .gallery-item {
+        width: 100%;
+        /* Full grid cell */
+        text-align: center;
+        /* Centers figure/delete/figcaption */
+        background: #f9f9f9;
+        /* Light bg for subtle card feel */
+        border-radius: 8px;
+        padding: 1rem;
+    }
+
+    .gallery-item figure {
+        margin: 0;
+    }
+
+    .gallery-item img {
+        max-width: 100%;
+        height: auto;
+        min-height: 200px;
+        /* Prevents squished small thumbs */
+        object-fit: cover;
+        /* Clean aspect ratio */
+        border-radius: 4px;
+        display: block;
+        margin: 0 auto 0.5rem;
+        /* Tight space below image */
+    }
+
+    .gallery-item figcaption {
+        font-size: var(--font-size);
+        font-style: italic;
+        color: #666;
+        margin-top: 0.5rem;
+    }
+
+    /* Bump search/add for easier interaction on large screens */
     #search-input,
     #search-media-input {
-        max-width: 400px;
-        font-size: 1.2rem;
-        padding: 1rem;
+        max-width: 500px;
+        /* Wider for big screens */
+        font-size: 1.5rem;
+        /* Matches bumped var if you added it */
+        padding: 1.25rem;
+        border-radius: 4px;
+        border: 1px solid #ccc;
     }
 
     #search-btn,
     #add-gallery-btn,
     #add-media-btn {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
+        font-size: 1.5rem;
+        padding: 1.25rem 2.5rem;
+        /* Larger hit areas */
         margin: 1rem auto;
-        transition: background-image 0.3s ease, transform 0.3s ease;
+        background-color: #F09A3E;
+        /* Ties to your theme */
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     #search-btn:hover,
     #add-gallery-btn:hover,
     #add-media-btn:hover {
+        background-color: hsla(240, 100%, 25%, 0.863);
+        /* Your dark blue */
         transform: scale(1.05);
     }
 
     .delete-btn {
+        position: absolute;
+        /* For overlay on images/media */
+        top: 0.5rem;
+        right: 0.5rem;
         width: 30px;
         height: 30px;
         font-size: 16px;
-        top: 1rem;
-        right: 1rem;
+        background-color: #cf200e;
+        /* Red for delete */
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
     }
 
     .delete-btn:hover {
+        background-color: #a00;
         transform: scale(1.1);
     }
 

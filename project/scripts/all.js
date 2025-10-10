@@ -274,6 +274,7 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
                 return;
             }
 
+            galleryContainer.classList.add(`content-grid`);
             galleryContainer.innerHTML = ``; //clear existing content
 
             // checking if there are no images/filtered images with an if statement condition
@@ -486,6 +487,8 @@ if (window.location.pathname.endsWith(`media.html`)) {
                 console.warn(`Media container not found!`);
                 return;
             }
+
+            mediaContainer.classList.add(`content-grid`);
             mediaContainer.innerHTML = ``; //clear existing content
 
             //checking if there are no media posts with an if statement condition

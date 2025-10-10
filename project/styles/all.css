@@ -56,7 +56,7 @@
 }
 
 body {
-    max-width: 759px;
+
     margin-top: var(--margin-top);
     margin-bottom: var(--margin-bottom);
     font-family: var(--font-family);
@@ -66,6 +66,7 @@ body {
 header,
 section,
 footer {
+    max-width: 759px;
     margin: 0.5rem auto;
     background-color: hsl(240, 25%, 97%);
     color: rgb(5, 5, 5);
@@ -451,6 +452,51 @@ img {
 }
 
 /* Shared Buttons/Inputs for Gallery & Media */
+
+#grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    justify-content: center;
+    align-items: start;
+    grid-template-rows: auto;
+    /*Ensures grid fills the section */
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgb(243, 7, 7);
+    border-radius: 6px;
+}
+
+
+.media-post {
+    overflow: hidden;
+    margin: 2rem 0;
+    border: 1px solid rgb(243, 7, 7);
+    border-radius: 6px;
+    padding: 2.5rem 2%;
+    max-width: 96%;
+}
+
+.media-post h3,
+.media-post p {
+    text-align: center;
+    font-family: var(--body-font);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+}
+
+.media-post audio,
+.media-post video {
+    max-width: 100%;
+    display: block;
+    margin: 0.5rem auto;
+}
+
 label[for="search-input"],
 label[for="search-media-input"] {
     display: block;
@@ -536,4 +582,17 @@ label[for="search-media-input"] {
 .delete-btn:focus {
     outline: 2px solid #007bff;
     border-radius: 50%;
+}
+
+img,
+video,
+audio {
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto ;
+}
+
+.gallery-item figure{
+    
 }

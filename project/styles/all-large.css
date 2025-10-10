@@ -3,23 +3,31 @@
         --heading-font: "Lora";
         --body-font: "Roboto";
         --heading-font-weight: bolder;
-        --heading-font-size: 2.5rem;
+        --heading-font-size: 2.2rem;
         --heading-text-transform: uppercase;
-        --font-size: 1.5rem;
+        --font-size: 1.2rem;
         --font-family: "Roboto", "Lora", Arial;
         --font-weight: 400;
         --line-height: 1.5;
-        --margin-bottom: 1.5rem;
-        --margin-top: 1.5rem;
+        --margin-bottom: 2rem;
+        --margin-top: 2rem;
     }
 
-    body {
-        max-width: 2400px;
+    header,
+    section,
+    footer {
+        max-width: min(90vw, 1200px);
+        margin: 1rem auto;
+        padding: 2rem;
+       
     }
 
     header {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
     }
 
     .navigation {
@@ -29,15 +37,16 @@
         position: static;
         border: none;
         transition: none;
-        gap: 1rem;
+        gap: 1.5rem;
         padding: 0;
+        justify-content: center;
     }
 
     .navigation a {
         color: black;
         font-size: 1.3rem;
         white-space: nowrap;
-        padding: 0.5rem;
+        padding: 0.5rem 1rem;
     }
 
     .navigation a:visited {
@@ -50,6 +59,7 @@
 
     h1 {
         font-size: var(--heading-font-size);
+        justify-self: center;
     }
 
     footer {
@@ -283,6 +293,31 @@
     }
 
     /* Shared Large Screen Tweaks */
+
+    .media-post {
+        /* overflow: hidden; */
+        margin: 2rem auto;
+        border: 1px solid rgb(243, 7, 7);
+        border-radius: 6px;
+        padding: 2rem;
+        max-width: 800px;
+    }
+
+    .media-post h3,
+    .media-post p {
+        text-align: center;
+        font-family: var(--body-font);
+        font-size: var(--font-size);
+        font-weight: var(--font-weight);
+    }
+
+    .media-post audio,
+    .media-post video {
+        max-width: 100%;
+        display: block;
+        margin: 0.5rem auto;
+    }
+
     #search-input,
     #search-media-input {
         max-width: 400px;
@@ -316,4 +351,6 @@
     .delete-btn:hover {
         transform: scale(1.1);
     }
+
+    
 }

@@ -207,7 +207,7 @@ if (window.location.pathname.endsWith(`thanks.html`)) {
 
 // dynamically creating the contact.html, media.html and gallery.html pages with script will be next
 
-// // Gallery page: Pictures only with Add/Search + WebP Conversion/Lazy Loading (dynamic + pre-populate)
+// Gallery page: Pictures only with Add/Search + WebP Conversion/Lazy Loading (dynamic + pre-populate)
 
 if (window.location.pathname.endsWith(`gallery.html`)) {
     window.addEventListener(`load`, function () {
@@ -300,12 +300,13 @@ if (window.location.pathname.endsWith(`gallery.html`)) {
                     const deleteBtn = !prePopulateImages.some(pre => pre.src === image.src) ? `<button class="delete-btn" data-src="${image.src}">X</button>` : ``;
                     //template literals for each image
                     const html = `
+                    <div class="gallery-item">
                     <figure>
                     <img src="${imgSrc}" alt="${image.alt}"loading="lazy">
                     ${deleteBtn}
                     <figcaption>${image.caption}</figcaption>
                     </figure>
-                    `;
+                    </div>`;
 
                     galleryContainer.innerHTML += html; //append each image - lazyloading on all images (preloaded and user added)
                 }
@@ -601,8 +602,8 @@ if (window.location.pathname.endsWith(`media.html`)) {
         const addBtn = document.querySelector(`#add-media-btn`);
         if (addBtn)
             addBtn.addEventListener(`click`, addMediaPost);
-        const searchBtn = document.querySelector(`#search-media-btn`);
-        const searchInput = document.querySelector(`#search-media-input`);
+        const searchBtn = document.querySelector(`#search-btn`);
+        const searchInput = document.querySelector(`#search-input`);
         if (searchBtn && searchInput) {
             searchBtn.addEventListener(`click`, () => {
                 const filtered = filterMedia(searchInput.value);

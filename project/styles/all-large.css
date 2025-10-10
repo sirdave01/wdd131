@@ -1,11 +1,11 @@
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 601px) {
     :root {
         --heading-font: "Lora";
         --body-font: "Roboto";
         --heading-font-weight: bolder;
         --heading-font-size: 2.2rem;
         --heading-text-transform: uppercase;
-        --font-size: 1.2rem;
+        --font-size: 1.5rem;
         --font-family: "Roboto", "Lora", Arial;
         --font-weight: 400;
         --line-height: 1.5;
@@ -16,7 +16,7 @@
     header,
     section,
     footer {
-        max-width: 1920px;
+        max-width: 2400px;
         margin: 1rem auto;
         padding: 2rem;
 
@@ -27,7 +27,7 @@
         grid-template-columns: repeat(3, 1fr);
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .navigation {
@@ -44,13 +44,15 @@
 
     .navigation a {
         color: black;
-        font-size: 1.3rem;
+        font-size: var(--font-size);
+        font-weight: var(--heading-font-weight);
+        font-family: var(--heading-font);
         white-space: nowrap;
         padding: 0.5rem 1rem;
     }
 
     .navigation a:visited {
-        color: rgb(245, 9, 9);
+        color: rgb(9, 9, 9);
     }
 
     .menu::before {
@@ -210,7 +212,6 @@
     }
 
     #support-note {
-
         font-size: var(--font-size);
         font-family: var(--body-font);
         font-weight: var(--font-weight);
@@ -227,15 +228,17 @@
     }
 
     #donation-form legend {
-
+        font-family: var(--heading-font);
+        font-weight: var(--heading-font-weight);
         font-size: var(--heading-font-size);
-        color: blue;
-        padding: 0 1.5rem;
+        color: hsl(240, 14%, 99%);
+        padding: 1rem 2rem;
+        background-color: hsla(240, 100%, 25%, 0.863);
     }
 
     #donation-form label {
-
-        font-size: 2rem;
+        font-family: var(--body-font);
+        font-size: var(--heading-font-size);
         display: block;
         padding-top: 1rem;
         font-weight: var(--font-weight);
@@ -292,7 +295,7 @@
         border-bottom: solid 8px green;
     }
 
-    /* Shared Large Screen Tweaks */
+    /* designing the media and gallery page */
 
     .media-post {
         /* overflow: hidden; */
@@ -300,14 +303,14 @@
         border: 1px solid rgb(243, 7, 7);
         border-radius: 6px;
         padding: 2rem;
-        max-width: 800px;
+        max-width: 2400px;
     }
 
     .media-post h3,
     .media-post p {
         text-align: center;
         font-family: var(--body-font);
-        font-size: var(--font-size);
+        font-size: var(--heading-font-size);
         font-weight: var(--font-weight);
     }
 
@@ -352,5 +355,56 @@
         transform: scale(1.1);
     }
 
+    /* styling the contact page for big screens */
+
+    #contact-form {
+        margin: 5rem 0;
+        border-radius: 8px;
+        padding: 1.5rem 2%;
+    }
+
+    #contact-form legend {
+        font-family: var(--heading-font);
+        font-weight: var(--heading-font-weight);
+        font-size: var(--heading-font-size);
+        color: hsl(240, 14%, 99%);
+        padding: 1rem 2rem;
+        background-color: hsla(240, 100%, 25%, 0.863);
+    }
+
+    #contact-form label {
+        font-family: var(--body-font);
+        font-size: var(--heading-font-size);
+        display: block;
+        padding-top: 1rem;
+        font-weight: var(--font-weight);
+    }
+
+    #contact-form input[type="text"],
+    #contact-form textarea,
+    #contact-form input[type="email"] {
+        display: block;
+        border: solid #999;
+        border-radius: 8px;
+        padding: 2.5rem;
+        color: hsl(0, 0%, 2%);
+        width: 100%;
+        max-width: 2400px;
+        appearance: none;
+        font-size: 2rem;
+    }
+
+    #contact-form input[type="submit"] {
+        color: white;
+        font-size: var(--heading-font-size);
+        font-weight: var(--heading-font-weight);
+        border-radius: 15px;
+        padding: 2.5rem;
+        max-width: 2400px;
+        margin: 1rem 2% 2rem 2%;
+        box-shadow: 1px 1px 4px gray;
+        cursor: pointer;
+        background-image: linear-gradient(hsl(251, 70%, 27%), hsl(243, 64%, 11%));
+    }
 
 }

@@ -357,7 +357,7 @@ img {
     display: block;
     padding-top: 1rem;
     color: hsl(240, 97%, 15%);
-    font-size: .9rem;
+    font-size: var(--font-size);
     font-weight: var(--font-weight);
 }
 

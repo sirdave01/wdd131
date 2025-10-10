@@ -16,7 +16,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&family=Lora:wght@700&display=swap"
         rel="stylesheet">
 
-    <link rel="android-chrome-192x192" href="images/icons/android-chrome-192x192.png">
     <link rel="android-chrome-512x512" href="images/icons/android-chrome-512x512.png">
     <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
     <link rel="icon" href="images/icons/favicon-16x16.png">
@@ -67,15 +66,15 @@
             A warm welcome to our official church page
         </p>
 
-        <button class="butt"><a href="about.html">About Us</a></button>
+        <a href="about.html" class="butt">About Us</a>
 
-        <button class="butt give"><a href="donation.html">Give</a></button>
+        <a href="donation.html" class="butt give">Give</a>
 
         <h2 class="home">My Church Nigeria</h2>
 
-        <section class="hero" role="region" aria-labelledby="welcome">
+        <section class="hero" aria-labelledby="welcome">
 
-            <h3>
+            <h3 id="welcome">
                 Welcome Message
             </h3>
 
@@ -86,22 +85,23 @@
 
             <!-- shorthand for making pictures images main>div.hero>picture>source:media*2+img -->
 
-            <picture class="images">
+            <figure>
+                <picture class="images">
 
-                <source media="(min-width: 1000px)" srcset="images/dp-large.webp">
+                    <source media="(min-width: 1000px)" srcset="images/dp-large.webp">
 
-                <source media="(min-width: 500px)" srcset="images/dp-medium.webp">
+                    <source media="(min-width: 500px)" srcset="images/dp-medium.webp">
 
-                <img src="images/dp.webp" alt="founder" width="200" height="200" loading="lazy">
+                    <img src="images/dp.webp" alt="founder" width="200" height="200" loading="lazy">
+                </picture>
                 <figcaption>Osigwe Uchechukwu DavidCaleb</figcaption>
-
-            </picture>
+            </figure>
 
         </section>
 
-        <section id="history" role="region" aria-labelledby="history">
+        <section id="history" aria-labelledby="history-heading">
 
-            <h3>
+            <h3 id="history-heading">
                 Our History
             </h3>
 
@@ -128,7 +128,7 @@
 
     </main>
 
-    <footer role="contentinfo">
+    <footer>
 
         <p>
 

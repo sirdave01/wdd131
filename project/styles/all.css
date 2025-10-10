@@ -182,50 +182,84 @@ footer {
 }
 
 .home {
+    text-align: center;
     font-size: var(--heading-font-size);
+    font-weight: var(--heading-font-weight);
     position: absolute;
-    top: 200px;
-    padding: 1rem;
-    color: #FFFFFF;
-    width: 100%;
+    top: 220px;
+    padding: 0.5rem;
+    color: black;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFFFFF;
 }
 
 .warm {
     position: absolute;
-    top: 300px;
-    color: #FFFFFF;
+    top: 330px;
+    color: black;
     text-align: center;
     font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    font-size: var(--font-size);
     overflow-wrap: break-word;
     padding: 0 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFFFFF;
 }
 
-.butt a {
-    position: absolute;
-    top: 450px;
-    background-color: #F09A3E;
+.butt,
+.give {
+    display: inline-block;
+    /* Button-like block without full width */
     text-decoration: none;
-    padding: 0.5rem 2.2rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    color: #FFFFFF;
     font-family: var(--body-font);
-    font-size: large;
-    justify-content: center;
-    align-items: center;
+    font-size: var(--heading-font-size);
+    font-weight: var(--heading-font-weight);
+    color: #FFFFFF;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 1rem 0;
+    text-align: center;
+    width: fit-content;
 }
 
-.give a {
-    position: absolute;
-    top: 500px;
+.butt {
     background-color: hsla(240, 100%, 25%, 0.863);
-    text-decoration: none;
-    padding: 0.5rem 2.2rem;
-    color: #FFFFFF;
+    padding: 0.5rem;
+    top: 400px;
+    /* Remove old fixed top */
+}
+
+.give {
+    top: 460px;
+    background-color: hsla(240, 100%, 25%, 0.863);
+    padding: 0.5rem;
+    margin-top: 1rem;
+    /* Replaces old margin-top */
+}
+
+/* Hero Figcaption: New styling for the wrapped caption */
+.hero figcaption {
     font-family: var(--body-font);
-    font-size: large;
-    justify-content: center;
+    font-size: 1rem;
+    /* Smaller than heading */
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+}
+
+/* Optional: Ensure figure fits in grid */
+.hero figure {
+    /* Keeps image in right column */
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    margin: 0;
 }
 
 .hero,
@@ -274,14 +308,6 @@ footer {
     align-items: center;
 }
 
-.images figcaption {
-    align-self: center;
-    text-align: center;
-    font-family: var(--body-font);
-    font-size: var(--font-size);
-    font-style: italic;
-}
-
 img {
     animation: fade 10s;
 }
@@ -306,7 +332,8 @@ img {
 .bus {
     position: absolute;
     top: 210px;
-    background-color: #F09A3E;
+    background-color: white;
+    color: black;
     left: 50%;
     transform: translate(-50%);
     width: 80%;
@@ -452,8 +479,8 @@ img {
     font-family: var(--heading-font);
     font-weight: var(--heading-font-weight);
     text-transform: var(--heading-text-transform);
-    color: #F09A3E;
-    background-color: hsla(240, 91%, 13%, 0.786);
+    color: black;
+    background-color: white;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(240, 154, 62, 0.2);
 }

@@ -77,11 +77,10 @@
 
 
     .home {
-        font-size: var(--heading-font-size);
+        font-size: 3rem;
         font-weight: var(--heading-font-weight);
         font-family: var(--heading-font);
         padding: 1rem;
-        background-color: #F09A3E;
         margin-bottom: var(--margin-bottom);
         left: 50%;
         transform: translateX(-50%);
@@ -90,20 +89,17 @@
 
     .warm {
         top: 600px;
-        color: #F09A3E;
         font-family: var(--heading-font);
         overflow-wrap: normal;
         font-size: var(--heading-font-size);
         font-weight: var(--heading-font-weight);
         left: 50%;
         transform: translateX(-50%);
-        background-color: hsla(240, 100%, 25%, 0.863);
         padding: 1rem 2rem;
     }
 
-    .butt a {
+    .butt {
         top: 950px;
-        background-color: #F09A3E;
         text-decoration: none;
         padding: 1rem 2rem;
         color: #FFFFFF;
@@ -114,7 +110,7 @@
         transform: translateX(-50%);
     }
 
-    .give a {
+    .give {
         position: absolute;
         top: 1050px;
         margin-top: 1rem;
@@ -191,7 +187,6 @@
     .bus {
         position: absolute;
         top: 550px;
-        background-color: #F09A3E;
         left: 50%;
         transform: translate(-50%);
         width: 96%;

@@ -64,6 +64,7 @@ body {
 }
 
 header,
+main,
 section,
 footer {
     max-width: 600px;
@@ -225,6 +226,12 @@ footer {
     font-size: large;
     justify-content: center;
     align-items: center;
+}
+
+.hero,
+#vision,
+#history {
+    border: 2px solid #F09A3E;
 }
 
 .hero,

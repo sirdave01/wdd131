@@ -67,7 +67,7 @@ header,
 main,
 section,
 footer {
-    max-width: 600px;
+    max-width: 768px;
     margin: 1rem auto;
     background-color: hsl(240, 25%, 97%);
     color: rgb(5, 5, 5);
@@ -79,7 +79,7 @@ header {
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.2rem;
     background-color: #FFFFFF;
     align-items: center;
 }

@@ -67,7 +67,7 @@ header,
 main,
 section,
 footer {
-    max-width: 768px;
+    max-width: 1024px;
     margin: 1rem auto;
     background-color: hsl(240, 25%, 97%);
     color: rgb(5, 5, 5);
@@ -93,14 +93,12 @@ h3 {
     text-align: center;
 }
 
-h1 {
-    font-size: 20px;
-    text-align: center;
-}
 
 .logo {
     width: 50px;
+    right: -15px;
 }
+
 
 .menu {
     padding-right: 1rem;
@@ -186,7 +184,7 @@ footer {
     font-size: var(--heading-font-size);
     font-weight: var(--heading-font-weight);
     position: absolute;
-    top: 220px;
+    top: 270px;
     padding: 0.5rem;
     color: black;
     left: 50%;
@@ -196,7 +194,7 @@ footer {
 
 .warm {
     position: absolute;
-    top: 330px;
+    top: 440px;
     color: black;
     text-align: center;
     font-family: var(--font-family);
@@ -215,8 +213,8 @@ footer {
     /* Button-like block without full width */
     text-decoration: none;
     font-family: var(--body-font);
-    font-size: var(--heading-font-size);
-    font-weight: var(--heading-font-weight);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
     color: #FFFFFF;
     position: absolute;
     left: 50%;
@@ -229,12 +227,12 @@ footer {
 .butt {
     background-color: hsla(240, 100%, 25%, 0.863);
     padding: 0.5rem;
-    top: 400px;
+    top: 510px;
     /* Remove old fixed top */
 }
 
 .give {
-    top: 460px;
+    top: 550px;
     background-color: hsla(240, 100%, 25%, 0.863);
     padding: 0.5rem;
     margin-top: 1rem;
